@@ -3,7 +3,7 @@
 
 In the short term, this system is intended to be used by Occupations at their Generale Aseemblies to enable remote participation. This is my solution to the dwindling numbers of ordinary middle class families at the GA's. I theorize the trend of dwindling numbers will only increase as the winter months set in.
 *******************************************************************************************************************
-This is how I picture the software working:
+### Inteded process of user interaction
 
 - A user goes to their local Occupation and is given a voter registration card. Voter registration does not require any personal information. The voter registration card will have a unique registration number that the user will be required to enter upon registering on the website.
 - Once the user has registered they can view and "upvote" proposals (much like on Reddit), reply to proposals, or offer amendments to the proposals. All of these types of content can be upvoted. The upvoting of a proposal *is not* a binding vote. It simply gives the Facilitators an idea of what proposals matter to the GA.
