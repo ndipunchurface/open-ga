@@ -12,4 +12,8 @@ This is how I picture the software working:
 
 I feel I must emphasize that this process is entirely up to debate, and if anyone has any further thoughts on how this could work, I encourage you to contact me.
 *******************************************************************************************************************
+### Intended method of distribution
+
+I wanted to combine high functionality with ease of deployment. I feel that Youtube is a good example of this. Their system works by allowing users to embed iFrames into their own site that points back to Youtube. I want to do the same here, so it doesn not take a Rails expert to deploy this, and it will be compatible with ALL platforms (Wordpress, Drupal, etc). Theoretically, using this method it could be embedded in an email, or any other unfilterd HTML based medium for that matter.
+*******************************************************************************************************************
 Currently this software *is not* an official endeavor. I wanted to build the software *and then* present it to the Occupy Philadelphia (my local Occupation) GA and have their thoughts. I also would need to do some user testing to make sure the process actually works.
