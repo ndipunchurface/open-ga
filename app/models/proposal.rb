@@ -2,6 +2,8 @@ class Proposal < ActiveRecord::Base
   has_many :votes, :as => :voteable
   has_many :replies
   has_many :ammendments
+
+  include Voteable
   
   class << self
     def most_popular

@@ -1,4 +1,6 @@
 RemoteVote::Application.routes.draw do
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -11,7 +13,9 @@ RemoteVote::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :proposals
+  resources :proposals do
+    resources :amendments, :replies
+  end
 
   # Sample resource route with options:
   #   resources :products do

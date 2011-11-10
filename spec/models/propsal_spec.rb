@@ -14,4 +14,33 @@ describe Proposal, :type => :model do
     p3 = Proposal.most_popular.first
     p3.title.should == p1.title
   end
+
+  it "should upvote" do
+    proposal= Proposal.create(:user_id => 1, :title => "aidsh", :body => "boiahds")
+    proposal.votes.length.should == 0
+
+    proposal.upvote(3)
+
+    proposal.votes.length.should == 1
+  end
+
+  it "should downvote" do
+    proposal = Proposal.create(:user_id => 1, :title => "aoisdhf", :body => "aosidhf")
+    proposal.upvote(3)
+
+    proposal.downvote(4)
+    proposal.votes.length.should == 2
+  end
+
+  it "should have net_vote of 1" do
+    proposal = Proposal.create(:user_id => 1, :title => "aosidhf", :body => "aoisdhfa")
+    proposal.upvote(3)
+    proposal.upvote(4)
+
+    proposal.downvote(5)
+    
+    proposal.net_votes.should == 1
+  end
+    
+    
 end
