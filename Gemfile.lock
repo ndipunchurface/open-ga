@@ -134,6 +134,7 @@ GEM
     uglifier (1.0.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    uuidtools (2.1.2)
     warden (1.0.6)
       rack (>= 1.0)
 
@@ -156,3 +157,4 @@ DEPENDENCIES
   sqlite3
   turn
   uglifier (>= 1.0.3)
+  uuidtools
