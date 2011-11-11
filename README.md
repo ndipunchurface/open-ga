@@ -75,5 +75,6 @@ And then navigate to http://localhost:3000/
 
 - **Jon Laing** -- Lead programmer and software architect
 - _Anyone who wants to help! Please contact me if you want to be a part of this project!_
+
 *******************************************************************************************************************
 Currently this software *is not* an official endeavor. I wanted to build the software *and then* present it to the Occupy Philadelphia (my local Occupation) GA and have their thoughts. I also would need to do some user testing to make sure the process actually works.
