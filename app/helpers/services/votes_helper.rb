@@ -1,0 +1,2 @@
+module Services::VotesHelper
+end

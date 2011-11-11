@@ -21,6 +21,8 @@ group :assets do
   gem 'slim'
 end
 
+gem 'rdoc'
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

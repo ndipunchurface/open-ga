@@ -1,11 +1,11 @@
 module Voteable
 
   def upvote(userid)
-    votes.create({:user_id => userid,:upvote => true}) unless user_has_voted?(userid)
+    votes.create({:user_id => userid,:upvote => 1}) unless user_has_voted?(userid)
   end
 
   def downvote(userid)
-    votes.create({:user_id => userid,:upvote => false}) unless user_has_voted?(userid)
+    votes.create({:user_id => userid,:upvote => -1}) unless user_has_voted?(userid)
   end
 
   def user_has_voted?(userid)
@@ -13,7 +13,7 @@ module Voteable
   end
 
   def upvotes
-    votes.find(:all,:conditions => {:upvote => true})
+    votes.find(:all,:conditions => {:upvote => 1})
   end
 
   def num_upvotes
@@ -21,7 +21,7 @@ module Voteable
   end
 
   def downvotes
-    votes.find(:all,:conditions => {:upvote => false})
+    votes.find(:all,:conditions => {:upvote => -1})
   end
 
   def num_downvotes

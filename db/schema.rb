@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20111110202613) do
 
-  create_table "ammendments", :force => true do |t|
+  create_table "amendments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "proposal_id"
     t.text     "title"
@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(:version => 20111110202613) do
 
   create_table "replies", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "proposal_id"
+    t.integer  "replyable_id"
+    t.string   "replyable_type"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20111110202613) do
     t.integer  "user_id"
     t.integer  "voteable_id"
     t.string   "voteable_type"
-    t.boolean  "upvote"
+    t.integer  "upvote"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

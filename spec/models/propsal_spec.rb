@@ -6,11 +6,18 @@ describe Proposal, :type => :model do
     p1 = Proposal.create(:user_id => 0, :title => "test1", :body=>"testbody")
     p2 = Proposal.create(:user_id => 0, :title => "test2", :body=>"testbody")
 
-    p1.votes.create(:user_id => 0)
-    p1.votes.create(:user_id => 1)
+    2.times do |i|
+      p1.upvote(i)
+    end
 
-    p2.votes.create(:user_id => 1)
+    3.times do |i|
+      p2.upvote(i)
+    end
 
+    2.times do |i|
+      p2.downvote(i+3)
+    end
+    puts Proposal.most_popular.to_sql
     p3 = Proposal.most_popular.first
     p3.title.should == p1.title
   end
