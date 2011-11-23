@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110202613) do
+ActiveRecord::Schema.define(:version => 20111122194139) do
 
   create_table "amendments", :force => true do |t|
     t.integer  "user_id"
@@ -22,7 +22,35 @@ ActiveRecord::Schema.define(:version => 20111110202613) do
     t.datetime "updated_at"
   end
 
+  create_table "assemblies", :force => true do |t|
+    t.string   "uuid"
+    t.string   "name"
+    t.text     "description"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "binding_votes", :force => true do |t|
+    t.integer  "bindable_id"
+    t.string   "bindable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "preferences", :force => true do |t|
+    t.integer  "preferable_id"
+    t.string   "preferable_type"
+    t.string   "name"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "proposals", :force => true do |t|
+    t.integer  "assembly_id"
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
@@ -30,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20111110202613) do
     t.datetime "updated_at"
   end
 
-  create_table "registration_numbers", :id => false, :force => true do |t|
-    t.string   "id"
+  create_table "registration_numbers", :force => true do |t|
+    t.string   "uuid"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,8 +75,8 @@ ActiveRecord::Schema.define(:version => 20111110202613) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -59,7 +87,8 @@ ActiveRecord::Schema.define(:version => 20111110202613) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.string   "city"
-    t.integer  "occupation_id"
+    t.integer  "assembly_id"
+    t.boolean  "is_admin",                              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

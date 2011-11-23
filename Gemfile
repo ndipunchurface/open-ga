@@ -40,6 +40,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem "capybara"
   gem 'guard'
   gem 'guard-rspec'
 end

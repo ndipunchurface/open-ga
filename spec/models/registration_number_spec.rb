@@ -3,8 +3,8 @@ require 'spec_helper'
 describe RegistrationNumber do
   it "should burn a number as class" do
     num = RegistrationNumber.create({:active => true})
-    RegistrationNumber.burn_number(num.id)
-    num2 = RegistrationNumber.find(num.id)
+    RegistrationNumber.burn_number(num.uuid)
+    num2 = RegistrationNumber.find_by_uuid(num.uuid)
     num2.active.should == false
   end
 

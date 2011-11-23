@@ -1,4 +1,9 @@
 module Voteable
+  def self.included(base)
+    base.class_eval do
+      has_many :votes, :as => :voteable
+    end
+  end
 
   def upvote(userid)
     votes.create({:user_id => userid,:upvote => 1}) unless user_has_voted?(userid)

@@ -1,0 +1,17 @@
+doctype 5
+html
+  head
+    title = yield(:title) || "Remote Vote"
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+  body
+    header
+      h1 "Remote Vote"
+      == render "shared/navigation"
+
+    .flash
+      - flash.each do |key,value|
+        div class="#{key}" = value
+
+    == yield
+    

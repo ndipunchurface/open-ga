@@ -1,7 +1,7 @@
 class CreateRegistrationNumbers < ActiveRecord::Migration
   def change
-    create_table :registration_numbers, :id => false do |t|
-      t.string :id, :primary => true
+    create_table :registration_numbers do |t|
+      t.string :uuid
       t.boolean :active
 
       t.timestamps

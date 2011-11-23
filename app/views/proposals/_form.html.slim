@@ -1,0 +1,9 @@
+= form_for proposal do |f|
+  .flash
+    - if proposal.errors.any?
+      There were errors submitting your proposal.
+      - proposal.errors.full_messages.each do |error|
+        .error = error
+  = f.text_field :title
+  = f.text_area :body
+  = f.submit "Propose", :id => "submit"
