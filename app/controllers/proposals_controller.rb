@@ -1,4 +1,5 @@
 class ProposalsController < ApplicationController
+  before_filter :init_assembly
   #TODO apply authentication to edit/update/destroy
   def index
     @popular = Proposal.most_popular(10)
@@ -14,35 +15,41 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(params[:proposal])
+    @proposal = @assembly.proposals.build(params[:proposal])
 
     if @proposal.save
       flash[:success] = "Proposal submitted successfully"
-      redirect_to @proposal
+      redirect_to assembly_proposal_url(@assembly,@proposal)
     else
       render :new
     end
   end
 
   def edit
-    @proposal = Proposal.find(params[:id])
+    @proposal = @assembly.proposals.find(params[:id])
   end
 
   def update
-    @proposal = Proposal.find(params[:id])
+    @proposal = @assembly.proposals.find(params[:id])
     @proposal.title = params[:proposal][:title]
     @proposal.body = params[:proposal][:body]
 
     if @proposal.save
       flash[:success] = "Proposal updated successfully"
-      redirect_to @proposal
+      redirect_to assembly_proposal_url(@assembly,@proposal)
     else
       render :edit
     end
   end
 
   def destroy
-    @proposal = Proposal.find(params[:id])
+    @proposal = @assembly.proposals.find(params[:id])
     @proposal.destroy
+  end
+
+  private
+
+  def init_assembly
+    @assembly = Assembly.find(params[:assembly_id])
   end
 end

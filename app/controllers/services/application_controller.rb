@@ -20,58 +20,58 @@ class Services::ApplicationController < ApplicationController
     render :json => no_record
   end
 
-  def new
-    render :json => invalid_action
-  end
-
-  def create
-    @record = model.new(params)
-    if @record.valid?
-      if @record.save
-        render :json => post_success
-      else
-        render :json => post_fail_unknown
-      end
-    else
-      render :json => post_fail_validation(@record.errors.messages)
-    end
-  end
-
-  def edit
-    render :json => invalid_action
-  end
-
-  def update
-    @record = model.find(params[:id])
-    unless @record.nil?
-      @record.body = params[:body]
-
-      if @record.valid? && @record.save
-        render :json =>  post_success
-
-      elsif !@record.valid?
-        render :json => post_fail_validation(@record.errors.messages)
-
-      else
-        render :json => post_fail_unknown
-      end
-    else
-      render :json => no_record
-    end
-  end
-
-  def destroy
-    @record = model.find(params[:id])
-
-    if @record.destroy
-      render :json => post_success
-    else
-      render :json => post_fail_unknown
-    end
-
-  rescue ActiveRecord::RecordNotFound
-    render :json => no_record
-  end
+#  def new
+#    render :json => invalid_action
+#  end
+#
+#  def create
+#    @record = model.new(params)
+#    if @record.valid?
+#      if @record.save
+#        render :json => post_success
+#      else
+#        render :json => post_fail_unknown
+#      end
+#    else
+#      render :json => post_fail_validation(@record.errors.messages)
+#    end
+#  end
+#
+#  def edit
+#    render :json => invalid_action
+#  end
+#
+#  def update
+#    @record = model.find(params[:id])
+#    unless @record.nil?
+#      @record.body = params[:body]
+#
+#      if @record.valid? && @record.save
+#        render :json =>  post_success
+#
+#      elsif !@record.valid?
+#        render :json => post_fail_validation(@record.errors.messages)
+#
+#      else
+#        render :json => post_fail_unknown
+#      end
+#    else
+#      render :json => no_record
+#    end
+#  end
+#
+#  def destroy
+#    @record = model.find(params[:id])
+#
+#    if @record.destroy
+#      render :json => post_success
+#    else
+#      render :json => post_fail_unknown
+#    end
+#
+#  rescue ActiveRecord::RecordNotFound
+#    render :json => no_record
+#  end
 
   private
 
