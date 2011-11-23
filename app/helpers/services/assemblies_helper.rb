@@ -1,0 +1,2 @@
+module Services::AssembliesHelper
+end

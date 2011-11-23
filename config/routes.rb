@@ -13,19 +13,23 @@ RemoteVote::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :proposals do
-    resources :amendments do
+  resources :assemblies do
+    resources :proposals do
+      resources :amendments do
+        resources :replies
+      end
       resources :replies
     end
-    resources :replies
   end
 
   namespace :services do
-    resources :proposals do
-      resources :amendments do
-        resources:replies
+    resources :assemblies do
+      resources :proposals do
+        resources :amendments do
+          resources:replies
+        end
+        resources :replies
       end
-      resources :replies
     end
   end
 
