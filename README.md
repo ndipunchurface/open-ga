@@ -30,7 +30,7 @@ Additionally, at the suggestion of others, I have added a "Web Service" function
 
 After you have all of your software installed navigate to your projects directory on your computer, or where ever you want to put your local build of Remote Vote. Run the following in your command line to grab a copy of the source code:
 
-	$ git clone https://github.com/jonlaing/Remote-Vote.git
+	$ git clone http://github.com/jonlaing/Remote-Vote.git
 
 #### Installing the Bundler
 
