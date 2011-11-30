@@ -7,6 +7,7 @@
 # Once the proposal is pushed subsequent votes are binding.
 class Proposal < ActiveRecord::Base
   belongs_to :assembly
+  belongs_to :user
   has_many :binding_votes, :as => :bindable
   has_many :replies, :as => :replyable
   has_many :amendments
