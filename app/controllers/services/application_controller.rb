@@ -78,4 +78,8 @@ class Services::ApplicationController < ApplicationController
   def model
     self.class.to_s.gsub(/Services::([a-zA-Z]+)Controller/,'\1').singularize.constantize
   end
+
+  def init_parents
+    false
+  end
 end
