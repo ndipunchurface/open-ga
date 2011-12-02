@@ -1,0 +1,3 @@
+= title "New Amendment to \"#{@proposal.title}\""
+= form_for [@assembly,@proposal,@amendment] do |f|
+  == render :partial => "form", :locals => {:assembly => @assembly, :proposal => @proposal, :amendment => @amendment }

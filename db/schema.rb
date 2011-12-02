@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(:version => 20111122194139) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "failed_attempts",                       :default => 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
     t.string   "name"
     t.string   "city"
     t.integer  "assembly_id"

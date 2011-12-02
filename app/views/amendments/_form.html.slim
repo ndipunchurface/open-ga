@@ -1,0 +1,9 @@
+= form_for [assembly, proposal, amendment] do |f|
+  .flash
+    - if amendment.errors.any?
+      There were errors submitting your amendment.
+      - amendment.errors.full_messages.each do |error|
+        .error = error
+  = f.text_field :title
+  = f.text_area :body
+  = f.submit "Amend", :id => "submit"

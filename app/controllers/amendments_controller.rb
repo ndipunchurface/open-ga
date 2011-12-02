@@ -1,5 +1,4 @@
 class AmendmentsController < ApplicationController
-  before_filter :authorize, :only => [:edit, :update, :destroy]
 
   def index
     @amendments = Amendment.all
@@ -26,10 +25,12 @@ class AmendmentsController < ApplicationController
 
   def edit
       @amendment = Amendment.find(params[:id])
+      authorize
   end
 
   def update
     @amendment = Amendment.find(params[:id])
+    authorize
 
     @amendment.title = params[:amendment][:title]
     @amendment.body = params[:amendment][:body]
@@ -43,19 +44,21 @@ class AmendmentsController < ApplicationController
   end
 
   def destroy
-    Amendment.find(params[:id]).destroy
+    @amendment = Amendment.find(params[:id])
+    authorize
+    @amendment.destroy
   end
 
   private
 
   def authorize
-    unless current_user == @amendment.user_id
+    unless current_user.id == @amendment.user_id
       not_authorized_redirect
     end
   end
 
   def not_authorized_redirect
     flash[:error] = "You are not authorized to perform this action"
-    redirect_to assembly_proposal_amendment_url(@assembly,@proposal,@amendment)
+    redirect_to assembly_proposal_url(@assembly,@proposal)
   end
 end

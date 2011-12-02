@@ -1,5 +1,4 @@
 class ProposalsController < ApplicationController
-  before_filter :init_assembly
   #TODO apply authentication to edit/update/destroy
   def index
     @popular = Proposal.most_popular(10)
@@ -48,8 +47,4 @@ class ProposalsController < ApplicationController
   end
 
   private
-
-  def init_assembly
-    @assembly = Assembly.find(params[:assembly_id])
-  end
 end

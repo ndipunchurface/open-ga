@@ -1,5 +1,7 @@
 class Services::ApplicationController < ApplicationController
   layout nil
+  skip_before_filter :init_parents
+  skip_before_filter :authenticate_user!
   
   include Services::ApplicationHelper
 
@@ -77,9 +79,5 @@ class Services::ApplicationController < ApplicationController
 
   def model
     self.class.to_s.gsub(/Services::([a-zA-Z]+)Controller/,'\1').singularize.constantize
-  end
-
-  def init_parents
-    false
   end
 end
