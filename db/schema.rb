@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207204150) do
+ActiveRecord::Schema.define(:version => 20111208185545) do
 
   create_table "amendments", :force => true do |t|
     t.integer  "user_id"
@@ -86,6 +86,21 @@ ActiveRecord::Schema.define(:version => 20111207204150) do
     t.integer  "replyable_id"
     t.string   "replyable_type"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taxonomies", :force => true do |t|
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tag_id"
+    t.string   "assembly_uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

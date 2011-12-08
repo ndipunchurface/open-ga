@@ -44,47 +44,68 @@ describe Proposal, :type => :model do
     p.length.should == 3
   end
 
-  it "should upvote" do
-    proposal= Factory(:proposal) 
-    proposal.votes.length.should == 1
+  describe "Voting" do
+    it "should upvote" do
+      proposal= Factory(:proposal) 
+      proposal.votes.length.should == 1
 
-    proposal.upvote(user)
+      proposal.upvote(user)
 
-    proposal.votes.length.should == 2
+      proposal.votes.length.should == 2
+    end
+
+    it "should downvote" do
+      proposal = Factory(:proposal) 
+      proposal.upvote(3)
+
+      proposal.downvote(4)
+      proposal.votes.length.should == 3
+    end
+
+    it "should have net_vote of 1" do
+      proposal = Factory(:proposal)
+      proposal.upvote(3)
+      proposal.upvote(4)
+
+      proposal.downvote(5)
+      
+      proposal.net_votes.should == 2
+    end
+      
+    it "should find porposals with binding votes" do
+      proposal = Factory(:proposal)
+      proposal.binding_votes.create
+      other_proposal = Factory(:proposal) 
+
+      p_with_bvote = Proposal.binding
+      p_with_bvote.length.should == 1
+
+      p_with_bvote.first.title.should == proposal.title
+    end
+
+    it "can be flagged" do
+      proposal = Factory(:proposal)
+      proposal.flag
+      Flag.find_by_flaggable(proposal).length.should == 1
+    end
   end
+  
+  describe "Tagging" do
+    it "should return tags for hashtagged proposal" do
+      proposal = Factory.build(:proposal)
+      proposal.body += " #hashtag"
+      proposal.save!
+      proposal.tag_names.include?("hashtag").should === true
+    end
 
-  it "should downvote" do
-    proposal = Factory(:proposal) 
-    proposal.upvote(3)
-
-    proposal.downvote(4)
-    proposal.votes.length.should == 3
-  end
-
-  it "should have net_vote of 1" do
-    proposal = Factory(:proposal)
-    proposal.upvote(3)
-    proposal.upvote(4)
-
-    proposal.downvote(5)
-    
-    proposal.net_votes.should == 2
-  end
-    
-  it "should find porposals with binding votes" do
-    proposal = Factory(:proposal)
-    proposal.binding_votes.create
-    other_proposal = Factory(:proposal) 
-
-    p_with_bvote = Proposal.binding
-    p_with_bvote.length.should == 1
-
-    p_with_bvote.first.title.should == proposal.title
-  end
-
-  it "can be flagged" do
-    proposal = Factory(:proposal)
-    proposal.flag
-    Flag.find_by_flaggable(proposal).length.should == 1
+    it "should remove taxonomy of unused tags" do
+      proposal = Factory.build(:proposal)
+      body = proposal.body
+      proposal.body += " #hashtag #tag"
+      proposal.save!
+      proposal.body = body + " #tag"
+      proposal.save!
+      proposal.tag_names.include?("hashtag").should == false
+    end
   end
 end

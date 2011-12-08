@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :preferences, :as => :preferable
   has_many :authorizations
   has_many :binding_votes
+  has_many :blocks
 
   def is_admin?
     is_admin

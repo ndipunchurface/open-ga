@@ -25,7 +25,7 @@ In the short term, this system is intended to be used by Occupations at their Ge
 - YAML configuration files
 - Custom Rake Tasks\*
 
-\* Still in the works...
+\* Still in the works…
 
 *******************************************************************************************************************
 ### Intended process of user interaction
@@ -101,6 +101,7 @@ And then navigate to http://localhost:3000/
 ### Credits
 
 - **Jon Laing** - Lead programmer and software architect
+- **Nicole Di'Ponziano** - Lead designer and idea girl
 - _Anyone who wants to help! Please contact me if you want to be a part of this project!_
 
 *******************************************************************************************************************

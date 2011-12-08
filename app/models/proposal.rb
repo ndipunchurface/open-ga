@@ -12,13 +12,15 @@ class Proposal < ActiveRecord::Base
   has_many :replies, :as => :replyable
   has_many :flags, :as => :flaggable
   has_many :amendments
+  has_many :blocks
 
   validates :title, :length => {:minimum => 5}
   validates :body, :length => {:minimum => 140}
 
   include Voteable
   include Flaggable
-  
+  include Taggable
+
   class << self
     # Reorder by most popular proposals.
     def most_popular(limit = false)
@@ -32,5 +34,9 @@ class Proposal < ActiveRecord::Base
     def binding
       joins(:binding_votes)
     end
+  end
+
+  def block
+    blocks.create(:user_id => current_user.id)
   end
 end
