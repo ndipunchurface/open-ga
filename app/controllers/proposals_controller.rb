@@ -1,8 +1,8 @@
 class ProposalsController < ApplicationController
-  #TODO apply authentication to edit/update/destroy
+
   def index
     @popular = Proposal.most_popular(10)
-    @recent = Propsal.limit(10)
+    @recent = Proposal.limit(10)
   end
 
   def show
@@ -26,10 +26,13 @@ class ProposalsController < ApplicationController
 
   def edit
     @proposal = @assembly.proposals.find(params[:id])
+   
+    authenticate_ownership(@proposal)
   end
 
   def update
     @proposal = @assembly.proposals.find(params[:id])
+    authenticate_ownership(@proposal)
     @proposal.title = params[:proposal][:title]
     @proposal.body = params[:proposal][:body]
 
@@ -43,8 +46,15 @@ class ProposalsController < ApplicationController
 
   def destroy
     @proposal = @assembly.proposals.find(params[:id])
+    authenticate_ownership(@proposal)
     @proposal.destroy
+
+    render :index
   end
 
-  private
+  def flag
+    @proposal = @assembly.proposals.find(params[:id])
+    @proposal.flag
+  end
+
 end

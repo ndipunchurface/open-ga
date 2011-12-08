@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122194139) do
+ActiveRecord::Schema.define(:version => 20111207204150) do
 
   create_table "amendments", :force => true do |t|
     t.integer  "user_id"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20111122194139) do
     t.datetime "updated_at"
   end
 
-  create_table "assemblies", :force => true do |t|
-    t.string   "uuid"
+  create_table "assemblies", :id => false, :force => true do |t|
+    t.string   "uuid",        :limit => 36
     t.string   "name"
     t.text     "description"
     t.string   "city"
@@ -33,9 +33,24 @@ ActiveRecord::Schema.define(:version => 20111122194139) do
     t.datetime "updated_at"
   end
 
+  create_table "authorizations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "assembly_uuid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "binding_votes", :force => true do |t|
+    t.integer  "user_id"
     t.integer  "bindable_id"
     t.string   "bindable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "flaggable_id"
+    t.string   "flaggable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20111122194139) do
   end
 
   create_table "proposals", :force => true do |t|
-    t.integer  "assembly_id"
+    t.string   "assembly_uuid"
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
@@ -59,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20111122194139) do
   end
 
   create_table "registration_numbers", :force => true do |t|
+    t.string   "assembly_uuid"
     t.string   "uuid"
     t.boolean  "active"
     t.datetime "created_at"
@@ -90,7 +106,6 @@ ActiveRecord::Schema.define(:version => 20111122194139) do
     t.datetime "locked_at"
     t.string   "name"
     t.string   "city"
-    t.integer  "assembly_id"
     t.boolean  "is_admin",                              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"

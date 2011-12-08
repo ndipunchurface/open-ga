@@ -1,0 +1,10 @@
+= form_tag assembly_authorizations_path(@assembly) do
+  .flash
+    - if @assembly.errors.any?
+      There were errors submitting your proposal.
+      - @assembly.errors.full_messages.each do |error|
+        .error = error
+
+  = label_tag "registration_number", "Enter your registration number"
+  = text_field_tag "registration_number", "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  = submit_tag "Register", :id => "submit"

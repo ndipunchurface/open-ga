@@ -24,13 +24,13 @@ class AmendmentsController < ApplicationController
   end
 
   def edit
-      @amendment = Amendment.find(params[:id])
-      authorize
+    @amendment = Amendment.find(params[:id])
+    authenticate_ownership(@amendment)
   end
 
   def update
     @amendment = Amendment.find(params[:id])
-    authorize
+    authenticate_ownership(@amendment)
 
     @amendment.title = params[:amendment][:title]
     @amendment.body = params[:amendment][:body]
@@ -45,20 +45,8 @@ class AmendmentsController < ApplicationController
 
   def destroy
     @amendment = Amendment.find(params[:id])
-    authorize
+    authenticate_ownership(@amendment)
     @amendment.destroy
   end
 
-  private
-
-  def authorize
-    unless current_user.id == @amendment.user_id
-      not_authorized_redirect
-    end
-  end
-
-  def not_authorized_redirect
-    flash[:error] = "You are not authorized to perform this action"
-    redirect_to assembly_proposal_url(@assembly,@proposal)
-  end
 end

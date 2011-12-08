@@ -1,7 +1,2 @@
-article.proposal
-  header
-    = title @proposal.title
-    aside.actions
-      a "Upvote"
-      a "Downvote"
-  .body = @proposal.body
+= title(@proposal.title, false)
+== render :partial => "single", :locals => { :proposal => @proposal }

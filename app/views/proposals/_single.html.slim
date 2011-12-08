@@ -1,0 +1,5 @@
+article
+  h3 = proposal.title
+  .body = proposal.body
+aside
+  == render :partial => 'shared/actions', :locals => {:model => proposal}

@@ -10,17 +10,23 @@ class Proposal < ActiveRecord::Base
   belongs_to :user
   has_many :binding_votes, :as => :bindable
   has_many :replies, :as => :replyable
+  has_many :flags, :as => :flaggable
   has_many :amendments
 
   validates :title, :length => {:minimum => 5}
   validates :body, :length => {:minimum => 140}
 
   include Voteable
+  include Flaggable
   
   class << self
     # Reorder by most popular proposals.
-    def most_popular
-      joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC')
+    def most_popular(limit = false)
+      if !limit
+        joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC')
+      else
+        joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC').limit(limit)
+      end
     end
 
     def binding

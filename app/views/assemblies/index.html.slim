@@ -1,0 +1,4 @@
+= title "Assemblies you are attending"
+ul
+  - @assemblies.each do |assembly|
+    li = link_to assembly.name, assembly

@@ -13,7 +13,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :name
       t.string :city
-      t.integer :assembly_id
       t.boolean :is_admin, :default => false
 
       t.timestamps

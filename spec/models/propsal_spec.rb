@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Proposal, :type => :model do
+  let(:user) { Factory(:user) }
+
   it "should order by popularity" do
     p0 = Factory(:proposal)    
     p1 = Factory(:proposal)
@@ -17,18 +19,38 @@ describe Proposal, :type => :model do
     2.times do |i|
       p2.downvote(i+3)
     end
-    puts Proposal.most_popular.to_sql
     p3 = Proposal.most_popular.first
     p3.title.should == p1.title
   end
 
+  it "should order by popularity with limit" do
+    p0 = Factory(:proposal)    
+    p1 = Factory(:proposal)
+    p2 = Factory(:proposal)
+
+    2.times do |i|
+      p1.upvote(i)
+    end
+
+    3.times do |i|
+      p2.upvote(i)
+    end
+
+    2.times do |i|
+      p2.downvote(i+3)
+    end
+
+    p = Proposal.most_popular(3)
+    p.length.should == 3
+  end
+
   it "should upvote" do
     proposal= Factory(:proposal) 
-    proposal.votes.length.should == 0
-
-    proposal.upvote(3)
-
     proposal.votes.length.should == 1
+
+    proposal.upvote(user)
+
+    proposal.votes.length.should == 2
   end
 
   it "should downvote" do
@@ -36,7 +58,7 @@ describe Proposal, :type => :model do
     proposal.upvote(3)
 
     proposal.downvote(4)
-    proposal.votes.length.should == 2
+    proposal.votes.length.should == 3
   end
 
   it "should have net_vote of 1" do
@@ -46,7 +68,7 @@ describe Proposal, :type => :model do
 
     proposal.downvote(5)
     
-    proposal.net_votes.should == 1
+    proposal.net_votes.should == 2
   end
     
   it "should find porposals with binding votes" do
@@ -58,5 +80,11 @@ describe Proposal, :type => :model do
     p_with_bvote.length.should == 1
 
     p_with_bvote.first.title.should == proposal.title
+  end
+
+  it "can be flagged" do
+    proposal = Factory(:proposal)
+    proposal.flag
+    Flag.find_by_flaggable(proposal).length.should == 1
   end
 end

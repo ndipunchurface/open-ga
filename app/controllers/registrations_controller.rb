@@ -1,9 +1,7 @@
-class RegistrationsController < Devise::RegistrationsController
-  skip_before_filter :check_logged_in
-  skip_before_filter :init_parents
+class RegistrationsController < ApplicationController
+  skip_before_filter :authorize_participation
 
   def new
-    super
   end
 
   def create

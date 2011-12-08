@@ -3,6 +3,7 @@
 # be improved. Amendments are voteable.
 class Amendment < ActiveRecord::Base
   has_many :replies, :as => :replyable
+  has_many :flags, :as => :flaggable
   belongs_to :proposal
   belongs_to :user
 

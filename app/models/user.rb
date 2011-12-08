@@ -11,10 +11,34 @@ class User < ActiveRecord::Base
   has_many :ammendments
   has_many :votes
   has_many :preferences, :as => :preferable
+  has_many :authorizations
+  has_many :binding_votes
 
-  belongs_to :assembly
-  
   def is_admin?
     is_admin
+  end
+
+  def authorize(assembly)
+    if assembly.class.to_s =~ /String/i
+      authorizations.create(:assembly_uuid => assembly)
+    else
+      authorizations.create(:assembly_uuid => assembly.uuid)
+    end
+  end
+
+  def unauthorize(assembly)
+    if assembly.class.to_s =~ /String/i
+      authorizations.find(:all, :conditions => ["assembly_uuid = ?", assembly]).each {|a| a.destroy}
+    else
+      authorizations.find(:all, :conditions => ["assembly_uuid = ?", assembly.uuid]).each {|a| a.destroy}
+    end
+  end
+
+  def authorized?(assembly)
+    if assembly.class.to_s =~ /String/i
+      authorizations.find(:all, :conditions => ["assembly_uuid = ?", assembly]).length > 0
+    else
+      authorizations.find(:all, :conditions => ["assembly_uuid = ?", assembly.uuid]).length > 0
+    end
   end
 end

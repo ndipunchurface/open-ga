@@ -1,7 +1,7 @@
 class CreateAssemblies < ActiveRecord::Migration
   def change
-    create_table :assemblies do |t|
-      t.string :uuid
+    create_table :assemblies, :id => false do |t|
+      t.string :uuid, :limit => 36, :primary_key => true
       t.string :name
       t.text :description
       t.string :city

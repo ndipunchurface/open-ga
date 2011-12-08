@@ -2,6 +2,8 @@ class Services::ApplicationController < ApplicationController
   layout nil
   skip_before_filter :init_parents
   skip_before_filter :authenticate_user!
+  skip_before_filter :authorize_participation
+  skip_before_filter :authenticate_ownership
   
   include Services::ApplicationHelper
 

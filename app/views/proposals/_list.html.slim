@@ -1,8 +1,4 @@
 ul.proposals-list
   - proposals.each do |proposal|
     li.proposal
-      article
-        h3 = proposal.title
-        .body = proposal.body
-      aside
-        == render :partial => 'shard/actions', :locals => {:model => proposal}
+      == render :partial => "single", :locals => { :proposal => proposal }

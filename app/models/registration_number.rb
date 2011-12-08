@@ -8,6 +8,7 @@ require 'uuidable'
 # There will be associated Rake tasks to build numbers and print
 # registration cards.
 class RegistrationNumber < ActiveRecord::Base
+  belongs_to :assembly, :foreign_key => :assembly_uuid
 
   include UUIDable
   

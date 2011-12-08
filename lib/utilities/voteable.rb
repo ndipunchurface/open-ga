@@ -2,6 +2,9 @@ module Voteable
   def self.included(base)
     base.class_eval do
       has_many :votes, :as => :voteable
+      after_create do
+        upvote(user_id)
+      end
     end
   end
 
