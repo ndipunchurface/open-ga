@@ -1,13 +1,13 @@
 doctype 5
 html
   head
-    title = yield(:title) || "Remote Vote"
+    title = yield(:title) || t('global.app_title')
     = stylesheet_link_tag :application
     = javascript_include_tag :application
     = csrf_meta_tag
   body
     header
-      h1 Remote Vote
+      h1 = t('global.app_title')
       == render "shared/navigation"
 
     .flash

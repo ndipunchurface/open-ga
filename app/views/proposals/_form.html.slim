@@ -1,9 +1,9 @@
 = form_for [assembly, proposal] do |f|
   .flash
     - if proposal.errors.any?
-      There were errors submitting your proposal.
+      = t('proposals.errors')
       - proposal.errors.full_messages.each do |error|
         .error = error
   = f.text_field :title
   = f.text_area :body
-  = f.submit "Propose", :id => "submit"
+  = f.submit t('proposals.submit'), :id => "submit"

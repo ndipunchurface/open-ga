@@ -11,8 +11,9 @@ In the short term, this system is intended to be used by Occupations at their Ge
 - Reddit Style Upvoting/Downvoting on all content types
 - User flagging or inappropriate materials/trolling
 - Embeddable interface to be used on any platform (like a Youtube video player)\*
+- Public facing homepage for each Assembly (the rest requires registration)
 - Open-Source/Free (duh)
-- Internationalization\*
+- Internationalization (I need help translating, though. I only have the English locale at the moment.)
 
 #### Nerd Stuff
 

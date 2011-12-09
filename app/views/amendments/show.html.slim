@@ -1,7 +1,5 @@
 article.amendment
   header
     = title @amendment.title
-    aside.actions
-      a "Upvote"
-      a "Downvote"
+    == render :partial => 'shared/actions', :locals => {:model => @amendment}
   .body = @amendment.body

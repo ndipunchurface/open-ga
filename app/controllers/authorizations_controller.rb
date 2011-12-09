@@ -8,10 +8,10 @@ class AuthorizationsController < ApplicationController
   def create
     if authentic_registration_number?(params[:registration_number].downcase)
       current_user.authorize(@assembly)
-      flash[:success] = "You've successfully registered for this Assembly."
+      flash[:success] = t('authorizations.create.success')
       redirect_to assembly_path(@assembly)
     else
-      flash[:error] = "The registration number you've entered is invalid"
+      flash[:error] = t('authorizations.create.error')
       render :new
     end
   end

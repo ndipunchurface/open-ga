@@ -2,4 +2,56 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  global:
+    app_title: "Remote Vote"
+    upvote: "Up Vote"
+    downvote: "Down Vote"
+    posted_by: "Posted by %{user_name}"
+    reply:  "Reply"
+    navigation:
+      home: "Home"
+      preferences: "Preferences"
+      help: "Help"
+      logout: "Sign Out"
+
+  amendments:
+    index:
+      title: "Amendments for %{proposal_title}"
+    create:
+      title: "New Amendment to %{proposal_title}"
+      success: "The Amendment was submitted successfully"
+    update:
+      title: "Edit %{title}"
+      success: "The Amendment was updated successfully"
+    errors: "There were errors submitting your amendment."
+    submit: "Amend"
+
+  assemblies:
+    index:
+      title: "Assemblies you are attending."
+
+  authorizations:
+    create:
+      success: "You've successfully registered for this Assembly."
+      error: "The registration number you've entered is invalid."
+      registration_number: "Enter your registration number"
+      submit: "Register"
+
+  proposals:
+    index:
+      title: "Proposals for %{assembly_title}"
+    create:
+      title: "New Proposal"
+      success: "Proposal submitted successfully."
+    update:
+      title: "Edit Proposal"
+      success: "Proposal updated successfully."
+    errors: "There were errors submitting your proposal."  
+    submit: "Propose"
+
+  replies:
+    create:
+      title: "Reply to %{replyable_type}"
+      success: "Reply submitted successfully."
+    errors: "There were errors submitting your reply."
+    submit: "Reply"

@@ -17,7 +17,7 @@ class ProposalsController < ApplicationController
     @proposal = @assembly.proposals.build(params[:proposal])
 
     if @proposal.save
-      flash[:success] = "Proposal submitted successfully"
+      flash[:success] = t('proposals.create.success')
       redirect_to assembly_proposal_url(@assembly,@proposal)
     else
       render :new
@@ -37,7 +37,7 @@ class ProposalsController < ApplicationController
     @proposal.body = params[:proposal][:body]
 
     if @proposal.save
-      flash[:success] = "Proposal updated successfully"
+      flash[:success] = t('proposals.update.success')
       redirect_to assembly_proposal_url(@assembly,@proposal)
     else
       render :edit

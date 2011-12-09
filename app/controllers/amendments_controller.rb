@@ -16,7 +16,7 @@ class AmendmentsController < ApplicationController
     @amendment = Amendment.new(params[:amendment])
 
     if @amendment.save
-      flash[:success] = "Amendment submitted successfully"
+      flash[:success] = t('amendments.create.success')
       redirect_to assembly_proposal_amendment_url(@assembly,@proposal, @amendment)
     else
       render :new
@@ -36,7 +36,7 @@ class AmendmentsController < ApplicationController
     @amendment.body = params[:amendment][:body]
 
     if @amendment.save
-      flash[:success] = "Amendment updated successfully."
+      flash[:success] = t('amendments.update.success')
       redirect_to assembly_proposal_amendment_url(@assembly,@proposal,@amendment)
     else
       render :new

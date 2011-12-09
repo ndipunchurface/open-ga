@@ -1,2 +1,2 @@
-= title "Edit \"#{@amendment.title}\""
+= title t('amendments.update.title', :title => @amendment.title)
 == render :partial => "form", :locals => { :assembly => @assembly, :proposal => @proposal, :amendment => @amendment }

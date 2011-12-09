@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :init_parents
+  before_filter :set_locale, :unless => :devise_controller?
+  before_filter :init_parents, :unless => :devise_controller?
   before_filter :authenticate_user!, :unless => :devise_controller?
   before_filter :authorize_participation, :unless => :devise_controller?
   
@@ -8,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     current_user.is_admin?
+  end
+
+  def set_locale
+    I18n.locale = current_user.locale || I18n.default_locale
   end
 
   def authorize_participation

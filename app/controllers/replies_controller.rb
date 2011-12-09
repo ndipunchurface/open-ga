@@ -11,7 +11,7 @@ class RepliesController < ApplicationController
     @reply = Reply.new(params[:reply])
 
     if @reply.save
-      flash[:success] = "Reply submitted successfully"
+      flash[:success] = t('replies.create.success')
       if params[:amendment_id].nil?
         redirect_to assembly_proposal_url(@assembly.id,@proposal.id)
       else

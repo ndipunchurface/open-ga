@@ -1,2 +1,2 @@
-= title "Proposals for #{@assembly.name}"
+= title t('proposals.index.title', :assembly_title => @assembly.name)
 == render :partial => "list", :locals => {:proposals => @popular}

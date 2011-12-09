@@ -1,20 +1,20 @@
-= title "Reply to #{@reply.replyable.class.to_s}"
+= title t('replies.create.title', :replyable_type => @reply.replyable.class.to_s)
 - if @amendment.nil?
   = form_for [@assembly, @proposal, @reply] do |f|
     .flash
       -if @reply.errors.any?
-        There were errors submitting your reply.
+        = t('replies.errors')
         - @reply.errors.full_messages.each do |error|
           .error = error
     = f.text_area :body
-    = f.submit "Reply", :id => "submit"
+    = f.submit t('replies.submit'), :id => "submit"
 - else
   = form_for [@assembly, @proposal, @amendment, @reply] do |f|
     .flash
       -if @reply.errors.any?
-        There were errors submitting your reply.
+        = t('replies.errors')
         - @reply.errors.full_messages.each do |error|
           .error = error
     = f.text_area :body
-    = f.submit "Reply", :id => "submit"
+    = f.submit t('replies.submit'), :id => "submit"
 
