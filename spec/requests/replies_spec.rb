@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Replies" do
   let(:user) { Factory.create(:user) }
   let(:assembly) { Factory.create(:assembly) }
-  let(:proposal) { Factory.create(:proposal, :assembly => assembly) }
+  let(:proposal) { assembly.proposals.create(Factory.attributes_for(:proposal)) }
   let(:amendment) { Factory.create(:amendment, :proposal => proposal) }
 
   def sign_in

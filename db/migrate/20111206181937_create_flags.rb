@@ -3,6 +3,7 @@ class CreateFlags < ActiveRecord::Migration
     create_table :flags do |t|
       t.integer :flaggable_id
       t.string :flaggable_type
+      t.integer :user_id
 
       t.timestamps
     end

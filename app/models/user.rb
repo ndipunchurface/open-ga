@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :binding_votes
   has_many :blocks
+  has_many :flags
+  has_many :assemblies
 
   def is_admin?
     is_admin

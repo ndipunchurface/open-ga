@@ -1,0 +1,11 @@
+= title "##{@tag.name}"
+ul.tagged-list
+  - @tagged_records.each do |tagged_record|
+    li.tagged-item
+      - case tagged_record.class.to_s
+      - when /Proposal/
+        == render :partial => "proposals/single", :locals => { :proposal => tagged_record, :assembly => @assembly}
+      - when /Amendment/
+        == render :partial => "amendments/single", :locals => { :amendment => tagged_record, :assembly => @assembly }
+      - when /Reply/
+        == render :partial => "reply/single", :locals => {:reply => tagged_record }

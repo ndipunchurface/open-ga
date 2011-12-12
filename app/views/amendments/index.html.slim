@@ -1,9 +1,2 @@
 =title t('amendments.index.title', :proposal_title => @proposal.title)
-- @amendments.each do |amendment|
-  article.amendment
-    header
-      h3 = amendment.title
-      span.posted_by = t('global.posted_by', :user_name => amendment.user.name)
-    == render :partial => 'shared/actions', :locals => {:model => amendment}
-    .body = amendment.body
-    = link_to t('global.reply'), new_assembly_proposal_amendment_reply_url(@assembly,@proposal,amendment)
+== render :partial => "list", :locals => {:amendments => @amendments}

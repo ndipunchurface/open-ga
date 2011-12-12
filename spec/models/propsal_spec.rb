@@ -85,8 +85,28 @@ describe Proposal, :type => :model do
 
     it "can be flagged" do
       proposal = Factory(:proposal)
-      proposal.flag
+      proposal.flag(user.id)
       Flag.find_by_flaggable(proposal).length.should == 1
+    end
+
+    it "cannot be flagged twice by same user" do
+      proposal = Factory(:proposal)
+      proposal.flag(user.id)
+      proposal.flag(user.id)
+      Flag.find_by_flaggable(proposal).length.should == 1
+    end
+
+    it "can be blocked" do
+      proposal = Factory(:proposal)
+      proposal.block(user.id)
+      proposal.blocks.length.should == 1
+    end
+
+    it "cannot be block twice by same user" do
+      proposal = Factory(:proposal)
+      proposal.block(user.id)
+      proposal.block(user.id)
+      proposal.blocks.length.should == 1
     end
   end
   

@@ -13,6 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :name
       t.string :city
+      t.string :locale, :default => "en"
       t.boolean :is_admin, :default => false
 
       t.timestamps

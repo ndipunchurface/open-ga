@@ -1,2 +1,4 @@
 = title(@proposal.title, false)
-== render :partial => "single", :locals => { :proposal => @proposal }
+== render :partial => 'proposals/single', :locals => {:assembly => @assembly, :proposal => @proposal}
+== render :partial => 'amendments/list', :locals => { :amendments => @proposal.amendments, :assembly => @assembly }
+== render :partial => 'replies/list', :locals => { :replies => @proposal.replies }

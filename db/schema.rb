@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208185545) do
+ActiveRecord::Schema.define(:version => 20111212212925) do
+
+  create_table "aliases", :force => true do |t|
+    t.string   "assembly_uuid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "amendments", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20111208185545) do
 
   create_table "assemblies", :id => false, :force => true do |t|
     t.string   "uuid",        :limit => 36
+    t.integer  "user_id"
     t.string   "name"
     t.text     "description"
     t.string   "city"
@@ -48,9 +56,17 @@ ActiveRecord::Schema.define(:version => 20111208185545) do
     t.datetime "updated_at"
   end
 
+  create_table "blocks", :force => true do |t|
+    t.integer  "proposal_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "flags", :force => true do |t|
     t.integer  "flaggable_id"
     t.string   "flaggable_type"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -121,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20111208185545) do
     t.datetime "locked_at"
     t.string   "name"
     t.string   "city"
+    t.string   "locale",                                :default => "en"
     t.boolean  "is_admin",                              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -31,12 +31,16 @@ class Proposal < ActiveRecord::Base
       end
     end
 
+    # Find a proposals with binding votes
     def binding
       joins(:binding_votes)
     end
   end
 
-  def block
-    blocks.create(:user_id => current_user.id)
+  # See: app/models/block.rb
+  def block(user_id)
+    unless blocks.where(:user_id => user_id).exists?
+      blocks.create(:user_id => user_id)
+    end
   end
 end

@@ -1,0 +1,4 @@
+ul.amendments-list
+  - amendments.each do |amendment|
+    li.amendment-item
+      == render :partial => 'amendments/single', :locals => {:amendment => amendment}

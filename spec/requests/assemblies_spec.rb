@@ -23,6 +23,11 @@ describe "Assemblies" do
       sign_in
     end
 
+    it "should show an assembly that user is attending" do
+      visit assemblies_path
+      page.should have_content(assembly.name)
+    end
+
     it "should use uuid to find assembly" do
       visit assembly_path(assembly.uuid)
       page.should have_content('Proposals')

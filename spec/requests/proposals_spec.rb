@@ -18,7 +18,7 @@ describe "Proposals" do
   describe "PUT /proposals" do
     it "creates proposal when valid parameters" do
       visit new_assembly_proposal_path(assembly)
-      proposal_attr = Factory.attributes_for(:proposal)
+      proposal_attr = Factory.attributes_for(:proposal, :assembly => assembly)
       fill_in 'proposal_title', :with => proposal_attr[:title]
       fill_in 'proposal_body', :with => proposal_attr[:body]
       click_button 'submit'

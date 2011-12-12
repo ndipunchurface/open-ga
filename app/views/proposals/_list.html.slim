@@ -1,4 +1,4 @@
 ul.proposals-list
   - proposals.each do |proposal|
-    li.proposal
-      == render :partial => "single", :locals => { :proposal => proposal }
+    li.proposal-item
+      == render :partial => "proposals/single", :locals => { :proposal => proposal, :assembly => assembly }

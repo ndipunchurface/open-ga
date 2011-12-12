@@ -5,15 +5,15 @@ class AmendmentsController < ApplicationController
   end
 
   def show
-    @amendment = Amendment.find(params[:id])
+    @amendment = @proposal.amendments.find(params[:id])
   end
 
   def new
-    @amendment = Amendment.new
+    @amendment = @proposal.amendments.build
   end
 
   def create
-    @amendment = Amendment.new(params[:amendment])
+    @amendment = @proposal.amendments.build(params[:amendment])
 
     if @amendment.save
       flash[:success] = t('amendments.create.success')

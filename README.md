@@ -9,7 +9,7 @@ In the short term, this system is intended to be used by Occupations at their Ge
 - UUID Registration Numbers (Unique, not reproduceable)
 - Proposals, Amendments, Replies, Straw Polls, and Binding Votes
 - Reddit Style Upvoting/Downvoting on all content types
-- User flagging or inappropriate materials/trolling
+- User flagging of inappropriate materials/trolling
 - Embeddable interface to be used on any platform (like a Youtube video player)\*
 - Public facing homepage for each Assembly (the rest requires registration)
 - Open-Source/Free (duh)

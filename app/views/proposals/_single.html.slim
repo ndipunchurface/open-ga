@@ -1,5 +1,5 @@
-article
-  h3 = proposal.title
+article.proposal
+  h3 = link_to proposal.title, assembly_proposal_path(assembly,proposal)
   .body = proposal.body
 aside
   == render :partial => 'shared/actions', :locals => {:model => proposal}

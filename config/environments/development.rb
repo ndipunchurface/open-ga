@@ -32,4 +32,5 @@ RemoteVote::Application.configure do
   # For Rails, you'd probably want this line in
   # config/environments/development.rb
   Slim::Engine.set_default_options :pretty => true
+
 end

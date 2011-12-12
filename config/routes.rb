@@ -16,6 +16,7 @@ RemoteVote::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :assemblies do
+    resources :tags, :only => :show
     resources :authorizations, :only => [:new,:create,:destroy]
     resources :proposals  do
       resources :amendments do

@@ -12,4 +12,11 @@ class AssembliesController < ApplicationController
     @proposals = @assembly.proposals
   end
 
+  def create
+    @assembly.new(params[:assembly])
+    @assembly.user_id = current_user.id
+
+    #write the rest
+  end
+
 end

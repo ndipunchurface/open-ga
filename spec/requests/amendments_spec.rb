@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Amendments" do
   let(:user) { Factory.create(:user) }
   let(:assembly) { Factory.create(:assembly) }
-  let(:proposal) { Factory.create(:proposal, :assembly => assembly, :user => user) }
+  let(:proposal) { assembly.proposals.create(Factory.attributes_for(:proposal, :user => user)) }
 
   def sign_in
     user.authorize(assembly)
@@ -26,12 +26,11 @@ describe "Amendments" do
   describe "PUT /amendment" do
     it "creates amendment when valid parameters" do
       visit new_assembly_proposal_amendment_path(assembly,proposal)
-      amendment_attr = Factory.attributes_for(:amendment)
+      amendment_attr = proposal.amendments.build(Factory.attributes_for(:amendment))
       fill_in 'amendment_title', :with => amendment_attr[:title]
       fill_in 'amendment_body', :with => amendment_attr[:body]
       click_button 'submit'
-      current_path.should == assembly_proposal_amendment_path(assembly,proposal,Amendment.last)
-      page.should have_content("Amendment submitted successfully")
+      page.should have_content("Amendment was submitted successfully")
     end
 
     it "fails when no content for amendment is submitted" do
@@ -74,7 +73,7 @@ describe "Amendments" do
       fill_in 'amendment_body', :with => body
       click_button 'submit'
       current_path.should == assembly_proposal_amendment_path(assembly,proposal,amendment)
-      page.should have_content("Amendment updated successfully")
+      page.should have_content("Amendment was updated successfully")
     end
 
     it "fails when no content for amendment is submitted" do

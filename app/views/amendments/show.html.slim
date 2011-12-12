@@ -1,5 +1,3 @@
-article.amendment
-  header
-    = title @amendment.title
-    == render :partial => 'shared/actions', :locals => {:model => @amendment}
-  .body = @amendment.body
+= title @amendment.title, false
+== render :partial => 'amendments/single', :locals => {:amendment => @amendment}
+== render :partial => 'replies/list', :locals => {:replies => @amendment.replies}

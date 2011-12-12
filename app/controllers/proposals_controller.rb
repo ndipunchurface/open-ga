@@ -6,11 +6,11 @@ class ProposalsController < ApplicationController
   end
 
   def show
-    @proposal = Proposal.find(params[:id])
+    @proposal = @assembly.proposals.find(params[:id])
   end
 
   def new
-    @proposal = Proposal.new
+    @proposal = @assembly.proposals.build
   end
 
   def create

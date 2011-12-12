@@ -1,6 +1,6 @@
 = title @assembly.name
 h3 Proposals
 .proposals.main-column
-  == render :partial => 'proposals/list', :locals => {:proposals => @proposals}
+  == render :partial => 'proposals/list', :locals => {:proposals => @proposals, :assembly => @assembly}
 aside.sidebar
   == render :partial => 'proposals/form', :locals => {:proposal => Proposal.new, :assembly => @assembly}

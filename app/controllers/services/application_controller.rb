@@ -4,6 +4,7 @@ class Services::ApplicationController < ApplicationController
   skip_before_filter :authenticate_user!
   skip_before_filter :authorize_participation
   skip_before_filter :authenticate_ownership
+  skip_before_filter :set_locale
   
   include Services::ApplicationHelper
 

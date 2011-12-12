@@ -23,6 +23,14 @@ class RegistrationNumber < ActiveRecord::Base
     def find_by_uuid(n)
       where(:uuid => n).first
     end
+
+    def burned
+      where(:active => false)
+    end
+
+    def not_burned
+      where(:active => true)
+    end
   end
 
   # Burn number from the instance level:

@@ -1,0 +1,5 @@
+article.amendment
+  h3 = link_to amendment.title, assembly_proposal_amendment_path(amendment.proposal.assembly_uuid,amendment.proposal.id,amendment)
+  .body = amendment.body
+aside
+  == render :partial => 'shared/actions', :locals => {:model => amendment}
