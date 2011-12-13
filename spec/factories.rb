@@ -4,13 +4,6 @@ Factory.define :user do |user|
   user.password_confirmation  "password"
 end
 
-Factory.define :admin_user, :parent => :user do |user|
-  user.sequence(:email)     { |n| "admin#{n}@example.com" }
-  user.password               "admin1234"
-  user.password_confirmation  "admin1234"
-  user.is_admin               true
-end
-
 Factory.define :assembly do |assembly|
   assembly.name               "Test Assembly"
 end

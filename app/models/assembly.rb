@@ -19,6 +19,13 @@ class Assembly < ActiveRecord::Base
 
   include UUIDable
 
+  def self.find_by_uuid_or_alias(string)
+    find(string)
+  rescue ActiveRecord::RecordNotFound
+    assembly_alias = Alias.where(:name => string).first
+    find(assembly_alias.assembly_uuid)
+  end
+
   def to_param
     uuid
   end
@@ -26,11 +33,12 @@ class Assembly < ActiveRecord::Base
   private
 
   def authorize_owner
-    Authorization.create(:user_id => user_id, :assembly_uuid => uuid)
+    user = User.find(user_id)
+    user.make_owner(uuid)
   end
 
   def alias_assembly
     slug = name.downcase.gsub(/[\W\s]/,'_')
-    build_alias(:name => slug)
+    create_alias(:name => slug)
   end
 end

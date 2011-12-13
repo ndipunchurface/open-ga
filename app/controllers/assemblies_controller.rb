@@ -8,7 +8,7 @@ class AssembliesController < ApplicationController
 
   def show
     authorize_participation
-    @assembly = Assembly.find(params[:id])
+    @assembly = Assembly.find_by_uuid_or_alias(params[:id])
     @proposals = @assembly.proposals
   end
 

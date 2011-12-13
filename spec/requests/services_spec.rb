@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe "Services" do
   describe "Assembly" do
-    let(:assembly) { Factory(:assembly) }
+    let(:owner) { Factory.create(:user) }
+    let(:assembly) { Factory(:assembly, :user => owner) }
     
     it "returns information about assembly" do
       visit services_assembly_path(assembly)

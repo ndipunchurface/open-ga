@@ -17,16 +17,48 @@ class User < ActiveRecord::Base
   has_many :flags
   has_many :assemblies
 
-  def is_admin?
-    is_admin
+  USER = 0
+  FACILITATOR = 1
+  OWNER = 2
+
+  ###### Get Authority ###########
+
+  def is_admin?(assembly)
+    return false if !authorized?(assembly)
+    get_authorization(assembly).role.to_i > USER
   end
 
-  def authorize(assembly)
-    if assembly.class.to_s =~ /String/i
-      authorizations.create(:assembly_uuid => assembly)
+  def is_facillitator?(assembly)
+    return false if !authorized(assembly)
+    get_authorization(assembly).role.to_i == FACILITATOR
+  end
+
+  def is_owner?(assembly)
+    return false if !authorized(assembly)
+    get_authorization(assembly).role.to_i == OWNER
+  end
+
+  ####### Authorize ############
+
+  def authorize(assembly, role = USER)
+    uuid = assembly.class.to_s =~ /String/ ? assembly : assembly.uuid
+
+    authorization = authorizations.where(:assembly_uuid => uuid).first
+
+    unless authorization.nil?
+      authorization.role = role
+      authorization.save!
     else
-      authorizations.create(:assembly_uuid => assembly.uuid)
+      authorizations.create(:assembly_uuid => uuid, :role => role)
     end
+  end
+
+  def make_owner(assembly)
+    authorize(assembly, OWNER)
+  end
+
+  def make_facilitator(assembly)
+    authorize(assembly, FACILITATOR)
   end
 
   def unauthorize(assembly)
@@ -38,10 +70,16 @@ class User < ActiveRecord::Base
   end
 
   def authorized?(assembly)
+    !get_authorization(assembly).nil?
+  end
+
+  private
+
+  def get_authorization(assembly)
     if assembly.class.to_s =~ /String/i
-      authorizations.find(:all, :conditions => ["assembly_uuid = ?", assembly]).length > 0
+      authorizations.where(:assembly_uuid => assembly).first
     else
-      authorizations.find(:all, :conditions => ["assembly_uuid = ?", assembly.uuid]).length > 0
+      authorizations.where(:assembly_uuid => assembly.uuid).first
     end
   end
 end

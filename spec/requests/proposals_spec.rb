@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe "Proposals" do
 
+  let(:owner) { Factory.create(:user) }
   let(:user) { Factory.create(:user) }
-  let(:assembly) { Factory.create(:assembly) }
+  let(:assembly) { Factory.create(:assembly, :user => owner) }
 
   def sign_in
     user.authorize(assembly)
@@ -39,7 +40,7 @@ describe "Proposals" do
     it "redirects if proposal not owned by current user" do
       proposal = assembly.proposals.create(Factory.attributes_for(:proposal, :user => Factory.create(:user)))
       visit edit_assembly_proposal_path(assembly.uuid, proposal.id)
-      page.should have_content("You are not authorized")
+      page.should have_content("You are not authorized to perform this action.")
     end
 
     it "updates proposal when valid parameters" do

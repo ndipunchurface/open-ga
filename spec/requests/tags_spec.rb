@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe "Tags" do
-  let(:assembly) { Factory.create(:assembly) }
+  let(:owner) { Factory.create(:user) }
+  let(:assembly) { Factory.create(:assembly, :user => owner) }
   let(:tag) { Factory.create(:tag) }
   let(:taxonomy) { assembly.taxonomies.build(:tag_id => tag.id) }
   let(:user) { Factory.create(:user) }

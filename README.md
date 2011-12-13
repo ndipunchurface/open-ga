@@ -1,6 +1,8 @@
 # Remote Vote
 ## A remote voting system
 
+[![Build Status](https://secure.travis-ci.org/jonlaing/Remote-Vote.png)](http://travis-ci.org/jonlaing/Remote-Vote)
+
 In the short term, this system is intended to be used by Occupations at their Generale Assemblies to enable remote participation. This is my solution to the dwindling numbers of ordinary middle class families, the elderly, and those with physical handicaps at the GA's. I theorize the trend of dwindling numbers will only increase as the winter months set in.
 *******************************************************************************************************************
 ### Features

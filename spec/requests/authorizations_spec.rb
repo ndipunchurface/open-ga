@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe "Authorizations" do
+  let(:owner) { Factory.create(:user) }
   let(:user) { Factory.create(:user) }
-  let(:assembly) { Factory.create(:assembly) }
+  let(:assembly) { Factory.create(:assembly, :user => owner) }
 
   def sign_in
     page.driver.post user_session_path, 'user[email]' => user.email, 'user[password]' => user.password

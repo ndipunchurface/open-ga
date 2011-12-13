@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe "Replies" do
+  let(:owner) { Factory.create(:user) }
   let(:user) { Factory.create(:user) }
-  let(:assembly) { Factory.create(:assembly) }
+  let(:assembly) { Factory.create(:assembly, :user => owner) }
   let(:proposal) { assembly.proposals.create(Factory.attributes_for(:proposal)) }
   let(:amendment) { Factory.create(:amendment, :proposal => proposal) }
 

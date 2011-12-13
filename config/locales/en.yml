@@ -13,6 +13,7 @@ en:
       preferences: "Preferences"
       help: "Help"
       logout: "Sign Out"
+    authorization_error: "You are not authorized to perform this action."
 
   amendments:
     index:
@@ -29,6 +30,10 @@ en:
   assemblies:
     index:
       title: "Assemblies you are attending."
+    users:
+      index: 
+        title: "Authorized users for %{assembly_title}"
+    registration_error: "You must be registered with this Assembly to perform this action."
 
   authorizations:
     create:
