@@ -3,7 +3,10 @@ class AssembliesController < ApplicationController
   
   def index
     authorizations = current_user.authorizations.collect { |a| a.assembly_uuid }
-    @assemblies = Assembly.find(authorizations)
+    ownerships = current_user.ownerships.collect { |a| a.assemblu_uuid }
+    
+    @authorized = Assembly.find(authorizations)
+    @owned = Assembly.find(ownerships)
   end
 
   def show

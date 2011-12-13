@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   FACILITATOR = 1
   OWNER = 2
 
+  def ownerships
+    authorizations.keep_if { |a| a.role == OWNER }
+  end
+
   ###### Get Authority ###########
 
   def is_admin?(assembly)

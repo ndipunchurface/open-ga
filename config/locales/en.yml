@@ -30,10 +30,13 @@ en:
   assemblies:
     index:
       title: "Assemblies you are attending."
+      join: "You currently are not registered for any Assemblies, join one, and let the democracy ensue!"
     users:
       index: 
         title: "Authorized users for %{assembly_title}"
     registration_error: "You must be registered with this Assembly to perform this action."
+    actions:
+      edit: "Edit"
 
   authorizations:
     create:
