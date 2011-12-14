@@ -36,7 +36,7 @@ class ProposalsController < ApplicationController
     @proposal.title = params[:proposal][:title]
     @proposal.body = params[:proposal][:body]
 
-    if @proposal.save
+    if @proposal.save!
       flash[:success] = t('proposals.update.success')
       redirect_to assembly_proposal_url(@assembly,@proposal)
     else

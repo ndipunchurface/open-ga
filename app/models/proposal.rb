@@ -6,7 +6,7 @@
 # a proposal to being an official proposal of the GA.
 # Once the proposal is pushed subsequent votes are binding.
 class Proposal < ActiveRecord::Base
-  belongs_to :assembly
+  belongs_to :assembly, :foreign_key => :uuid
   belongs_to :user
   has_many :binding_votes, :as => :bindable
   has_many :replies, :as => :replyable

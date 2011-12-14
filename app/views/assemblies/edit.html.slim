@@ -1,0 +1,5 @@
+= title t('assemblies.update.title')
+= form_for @assembly do |f|
+  = f.text_field :name
+  = select_tag "assembly_category_id", options_from_collection_for_select(AssemblyCategory.all, "id", "name"), :prompt => "Select a category--", :selected => @assembly.assembly_category_id
+  = f.submit t('assemblies.create.submit'), :id => "commit"

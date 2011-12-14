@@ -1,0 +1,2 @@
+class AssemblyCategoriesController < ApplicationController
+end

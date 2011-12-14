@@ -6,6 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+categories = AssemblyCategory.create([
+                { :name => "Activism" },
+                { :name => "Education" },
+                { :name => "Labor" },
+                { :name => "Municipal" },
+                { :name => "Non-Profit" },
+                { :name => "Recreational"}])
+
+# Development environment seeds for testing purposes
 if Rails.env =~ /development/i
   facilitator = User.create( 
     :email => 'admin@example.com',
@@ -30,6 +39,7 @@ if Rails.env =~ /development/i
 
   assembly = Assembly.create(
     :user_id => owner.id,
+    :assembly_category_id => 1,
     :name => "Test Assembly",
     :description => "Just a test assembly.",
     :city => "Philadelphia",
@@ -57,3 +67,4 @@ if Rails.env =~ /development/i
     :user_id => user.id,
     :body => "Another test reply." )
 end
+

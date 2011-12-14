@@ -31,12 +31,21 @@ en:
     index:
       title: "Assemblies you are attending."
       join: "You currently are not registered for any Assemblies, join one, and let the democracy ensue!"
+    create:
+      title: "Create new Assembly"
+      success: "%{assembly_title} has been created! Enjoy the democracy!"
+      submit: "Create"
+    update:
+      title: "Update settings for \"%{assembly_title}\""
+      success: "%{assembly_title} has successfully updated."
+      submit: "Update"
     users:
       index: 
         title: "Authorized users for %{assembly_title}"
     registration_error: "You must be registered with this Assembly to perform this action."
     actions:
       edit: "Edit"
+    errors: "There were errors creating your assembly."
 
   authorizations:
     create:

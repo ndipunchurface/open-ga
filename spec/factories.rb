@@ -6,6 +6,7 @@ end
 
 Factory.define :assembly do |assembly|
   assembly.name               "Test Assembly"
+  assembly.assembly_category_id 1
 end
 
 Factory.define :proposal do |proposal|

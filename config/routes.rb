@@ -14,7 +14,8 @@ RemoteVote::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  resource :assembly_categories, :only => [:index, :show ]
+
   resources :assemblies do
     resources :users
     resources :tags, :only => :show

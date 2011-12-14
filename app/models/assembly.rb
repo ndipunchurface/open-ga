@@ -9,11 +9,14 @@ class Assembly < ActiveRecord::Base
   has_many :proposals, :foreign_key => :assembly_uuid
   has_many :registration_numbers, :foreign_key => :assembly_uuid
   has_many :taxonomies, :foreign_key => :assembly_uuid
+  has_one :assembly_document_repository, :foreign_key => :assembly_uuid
+  has_many :documents, :through => :assembly_document_repository
   has_one :alias, :foreign_key => :assembly_uuid
   belongs_to :user
 
   after_save :authorize_owner
   after_save :alias_assembly
+  after_save :create_assembly_document_repository
 
   set_primary_key :uuid
 

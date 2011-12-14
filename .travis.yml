@@ -3,6 +3,10 @@ before_script:
   - "cp config/database.example.yml config/database.yml"
   - "cp config/application.example.yml config/application.yml"
   - "cp config/devise.example.yml config/devise.yml" 
-  script: "RAILS_ENV=test bundle exec rake spec --trace"
-  rvm:
-    - 1.9.2
+  - "bundle exec rake db:test:prepare"
+script: "RAILS_ENV=test bundle exec rake spec --trace"
+rvm:
+  - 1.9.2
+notifications:
+  email:
+    - info@jonlaing.com

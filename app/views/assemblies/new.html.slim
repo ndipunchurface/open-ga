@@ -1,0 +1,6 @@
+= title t('assemblies.create.title')
+= form_for @assembly do |f|
+  = f.text_field :name
+  = select_tag "assembly_category_id", options_from_collection_for_select(AssemblyCategory.all, "id", "name"), :prompt => "Select a category--"
+  p.notice You can further customize your Assembly by clicking "Edit" in the top navigation after the assembly is created
+  = f.submit t('assemblies.create.submit'), :id => "commit"
