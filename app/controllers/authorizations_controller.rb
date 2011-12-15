@@ -16,6 +16,13 @@ class AuthorizationsController < ApplicationController
     end
   end
 
+  def update
+    authorize_ownership(@assembly)
+    @authorization = Authorization.find(params[:id])
+    @authorization.role = 1 #bump to facilitator
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def authentic_registration_number?(number)

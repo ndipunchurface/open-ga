@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "factory_girl_rails"
   gem "capybara"
+  gem "mocha"
   gem "jasmine"
   gem 'guard'
   gem 'guard-rspec'
@@ -51,3 +52,5 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+gem 'growl_notify'

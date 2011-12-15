@@ -67,6 +67,12 @@ describe "Amendments" do
   describe "PUT /amendment/:id" do
     let(:amendment) { Factory(:amendment, :proposal => proposal, :user => user) }
 
+    it "fails when amendment is not owned by curent user" do
+      other_amendment = Factory.create(:amendment, :proposal => proposal, :user => owner)
+      visit edit_assembly_proposal_amendment_path(assembly,proposal,other_amendment)
+      page.should have_content("You are not authorized")
+    end
+
     it "updates amendment when valid parameters" do
       visit edit_assembly_proposal_amendment_path(assembly,proposal,amendment)
       body = "valid body"
@@ -103,5 +109,15 @@ describe "Amendments" do
       page.should have_content("New")
       page.html.should match(/error/)
     end
+  end
+
+  describe "DELETE /amendment/:id" do
+    let(:amendment) { Factory.create(:amendment, :proposal => propsal, :user => user) }
+
+    #it "fails when amendment is not owned by curent user" do
+    #  other_amendment = Factory.create(:amendment, :proposal => proposal, :user => owner)
+    #  delete assembly_proposal_amendment_path(assembly,proposal,other_amendment)
+    #  response.should redirect_to(assembly_proposal_amendments_path(assembly,proposal))
+    #end
   end
 end

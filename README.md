@@ -3,11 +3,15 @@
 
 [![Build Status](https://secure.travis-ci.org/jonlaing/Remote-Vote.png)](http://travis-ci.org/jonlaing/Remote-Vote)
 
-In the short term, this system is intended to be used by Occupations at their Generale Assemblies to enable remote participation. This is my solution to the dwindling numbers of ordinary middle class families, the elderly, and those with physical handicaps at the GA's. I theorize the trend of dwindling numbers will only increase as the winter months set in.
+In the short term, this system is intended to be used by Occupations at their General Assemblies to enable remote participation. This is my solution to the dwindling numbers of ordinary middle class families, the elderly, and those with physical handicaps at the GA's. I theorize the trend of dwindling numbers will only increase as the winter months set in.
+
+In the long term I was hoping to make this application scalable to create a fully featured online democracy app. Any user would be able to sign up and administer their own assembly.
+
 *******************************************************************************************************************
 ### Features
 
-- Configurable Assemblies\*
+- Configurable Assemblies
+- The ability to nominate facilitators to assist in administration of Assembly
 - UUID Registration Numbers (Unique, not reproduceable)
 - Proposals, Amendments, Replies, Straw Polls, and Binding Votes
 - Reddit Style Upvoting/Downvoting on all content types
@@ -33,10 +37,10 @@ In the short term, this system is intended to be used by Occupations at their Ge
 *******************************************************************************************************************
 ### Intended process of user interaction
 
-- A user goes to their local Occupation and is given a voter registration card. Voter registration does not require any personal information. The voter registration card will have a unique registration number that the user will be required to enter upon registering on the website.
-- Once the user has registered they can view and "upvote" or "downvote" proposals (much like on Reddit), reply to proposals, offer amendments to the proposals, or write their own proposals. All of these types of content can be voted upon. The upvoting of a proposal *is not* a binding vote. It simply gives the Facilitators an idea of what proposals matter to the GA.
-- Once the Facilitators officially bring a proposal to the GA users can discuss further and participate in a "binding vote". The binding vote is intended to be honored as a real vote at the GA. Voting would be open for 24 hours after the actual GA.
-- The results of the vote will be announced at the following GA.
+- A user goes to the physical location of the Assembly and is given a voter registration card. Alternatively the registration number could be emailed to the prospective user, though that is less secure. Voter registration does not require any personal information. The voter registration card will have a unique registration number that the user will be required to enter upon registering on the website.
+- Once the user has registered they can view and "upvote" or "downvote" proposals (much like on Reddit), reply to proposals, offer amendments to the proposals, or write their own proposals. All of these types of content can be voted upon and replied to. The upvoting of a proposal *is not* a binding vote. It simply gives the Facilitators an idea of what proposals matter to the participants of the Assembly.
+- Once the Facilitators officially bring a proposal to the GA users can discuss further and participate in a "binding vote". The binding vote is intended to be honored as a real vote at the physical Assembly. Voting would be open for 24 hours after the actual GA.
+- The results of the vote will be announced at the following physical Assembly.
 
 I feel I must emphasize that this process is entirely up to debate, and if anyone has any further thoughts on how this could work, I encourage you to contact me.
 *******************************************************************************************************************

@@ -32,14 +32,15 @@ ActiveRecord::Schema.define(:version => 20111214212356) do
   create_table "assemblies", :id => false, :force => true do |t|
     t.string   "uuid",                 :limit => 36
     t.integer  "user_id"
-    t.string   "name",                                                      :null => false
-    t.integer  "assembly_category_id",                                      :null => false
+    t.string   "name",                                               :null => false
+    t.integer  "assembly_category_id",                               :null => false
     t.text     "description"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
+    t.string   "country"
     t.integer  "super_majority",                     :default => 66
-    t.string   "theme",                              :default => "default"
+    t.integer  "theme_id",                           :default => 1
     t.string   "web_address"
     t.string   "public_email"
     t.string   "public_phone"

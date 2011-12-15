@@ -1,5 +1,9 @@
-ul.replies-list
-  - replies.each do |reply|
-    li.replies-item
-      == render :partial => 'replies/single', :locals => { :reply => reply }
-    
+- unless replies.empty?
+  ul.replies.list
+    - replies.each do |reply|
+      li.replies.item
+        == render :partial => 'replies/single', :locals => { :reply => reply }
+        - unless reply.replies.empty?
+          == render :partial => 'replies/list', :locals => {:replies => reply.replies }
+- else
+  p.replies.none = t('replies.none')

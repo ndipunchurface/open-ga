@@ -1,4 +1,7 @@
-ul.amendments-list
-  - amendments.each do |amendment|
-    li.amendment-item
-      == render :partial => 'amendments/single', :locals => {:amendment => amendment}
+- unless amendments.empty?
+  ul.amendments.list
+    - amendments.each do |amendment|
+      li.amendments.item
+        == render :partial => 'amendments/single', :locals => {:amendment => amendment}
+- else
+  p.amendments.none = t('amendments.none')

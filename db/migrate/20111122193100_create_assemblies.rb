@@ -9,10 +9,11 @@ class CreateAssemblies < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
+      t.string :country
       
       ## Preferences
       t.integer :super_majority, :default => 66
-      t.string :theme, :default => "default"
+      t.integer :theme_id, :default => 1
       t.string :web_address
       t.string :public_email
       t.string :public_phone

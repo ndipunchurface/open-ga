@@ -4,6 +4,10 @@ Factory.define :user do |user|
   user.password_confirmation  "password"
 end
 
+Factory.define :assembly_category do |category|
+  category.name "Test Category"
+end
+
 Factory.define :assembly do |assembly|
   assembly.name               "Test Assembly"
   assembly.assembly_category_id 1

@@ -46,7 +46,13 @@ class AmendmentsController < ApplicationController
   def destroy
     @amendment = Amendment.find(params[:id])
     authenticate_ownership(@amendment)
-    @amendment.destroy
+    if @amendment.destroy
+      flash[:notice] = t('amendments.destroy.success')
+      redirect_to assembly_proposal_path(@assembly,@proposal)
+    else
+      flash[:error] = t('amendments.destroy.error')
+      redirect_to assembly_proposal_path(@assembly,@propsal,@amendment)
+    end
   end
 
 end

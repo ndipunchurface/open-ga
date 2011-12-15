@@ -1,16 +1,15 @@
 = title t('assemblies.index.title')
 - unless @owned.empty?
-  ul.owned-assemblies-list
+  ul.owned.assemblies.list
     - @owned.each do |assembly|
-      li.owned-assemblies-item 
+      li.owned-assemblies.item 
         h3 = link_to assembly.name, assembly
         = link_to t('assembly.actions.edit'), edit_assembly(assembly)
 
 - unless @authorized.empty?
-  ul.authorized-assemblies-list
+  ul.authorized.assemblies.list
     - @authorized.each do |assembly|
-      li.authorized-assemblies-item 
+      li.authorized-assemblies.item 
         h3 = link_to assembly.name, assembly
 - else
-  p.no-assemblies
-    = t('assemblies.index.join')
+  p.assemblies.none = t('assemblies.index.none')

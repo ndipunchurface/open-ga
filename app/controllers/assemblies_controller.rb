@@ -1,5 +1,5 @@
 class AssembliesController < ApplicationController
-  skip_before_filter :authorize_participation, :only => [:index]
+  skip_before_filter :authorize_participation, :only => [:index, :new, :create]
   
   def index
     authorizations = current_user.authorizations.collect { |a| a.assembly_uuid }
@@ -38,6 +38,8 @@ class AssembliesController < ApplicationController
   def update
     @assembly = Assembly.find_by_uuid_or_alias(params[:id])
     authenticate_ownership(@assembly)
+    
+    @assembly.update_attributes(params[:assembly])
 
     if @assembly.save!
       flash[:success] = t('assemblies.update.success', :assembly_title => @assembly.name)

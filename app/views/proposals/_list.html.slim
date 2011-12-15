@@ -1,4 +1,7 @@
-ul.proposals-list
-  - proposals.each do |proposal|
-    li.proposal-item
-      == render :partial => "proposals/single", :locals => { :proposal => proposal, :assembly => assembly }
+- unless proposals.empty?
+  ul.proposals.list
+    - proposals.each do |proposal|
+      li.proposal.item
+        == render :partial => "proposals/single", :locals => { :proposal => proposal, :assembly => assembly }
+- else
+  p.proposals.none = t('proposals.none')

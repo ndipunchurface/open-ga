@@ -1,5 +1,55 @@
 = title t('assemblies.update.title')
 = form_for @assembly do |f|
-  = f.text_field :name
-  = select_tag "assembly_category_id", options_from_collection_for_select(AssemblyCategory.all, "id", "name"), :prompt => "Select a category--", :selected => @assembly.assembly_category_id
-  = f.submit t('assemblies.create.submit'), :id => "commit"
+  p.field
+    = f.label :name, t('assembly.fields.name')
+    = f.text_field :name
+  p.field
+    = f.label :category, t('assembly.category.name')
+    = select_tag "assembly_category_id", options_from_collection_for_select(AssemblyCategory.all, "id", "name"), :prompt => "Select a category--", :selected => @assembly.assembly_category_id
+  fieldset
+    legend = t('assembly.fields.location')
+    p.field
+      = f.label :city, t('assembly.fields.city')
+      = f.text_field :city
+    p.field
+      = f.label :state, t('assembly.fields.state')
+      = f.text_field :state
+    p.field
+      = f.label :zip, t('assembly.fields.zip')
+      = f.text_field :zip
+    p.field
+      = f.label :country, t('assembly.fields.country')
+      = f.text_field :country
+  fieldset
+    legend = t('assembly.fields.settings')
+    p.field
+      = f.label :description, t('assembly.fields.description')
+      = f.text_area :description
+    p.field
+      = f.label :super_majority, t('assembly.fields.super_majority')
+      = f.number_field :super_majority
+      span.help = t('assemblies.fields.super_majority_help')
+    p.field
+      = f.label :flag_threshold, t('assembly.fields.flag_threshold')
+      = f.number_field :flag_threshold
+      span.help = t('assemblies.fields.flag_threshold_help') 
+    p.field
+      = f.label :block_threshold, t('assembly.fields.block_threshold')
+      = f.number_field :block_threshold
+      span.help = t('assembly.fields.block_threshold_help') 
+    p.field
+      = f.label :theme_id, t('assembly.fields.theme')
+      = select_tag "theme_id", options_from_collection_for_select(Theme.all, "id", "name"), :prompt => "Select a theme--", :selected => @assembly.theme_id
+  fieldset
+    legend = t('assembly.fields.contact')
+    span.help = t('assemblies.fields.contact_help')
+    p.field
+      = f.label :web_address, t('assembly.fields.web_address')
+      = f.url_field :web_address, 
+    p.field
+      = f.label :public_email, t('assembly.fields.public_email')
+      = f.email_field :public_email
+    p.field
+      = f.label :public_phone, t('assembly.fields.public_phone')
+      = f.phone_field :public_phone
+  = f.submit t('assemblies.create.submit'), :id => "submit"

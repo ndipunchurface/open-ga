@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :flags
   has_many :assemblies
 
+  include Flaggable
+
   USER = 0
   FACILITATOR = 1
   OWNER = 2
@@ -32,13 +34,13 @@ class User < ActiveRecord::Base
     get_authorization(assembly).role.to_i > USER
   end
 
-  def is_facillitator?(assembly)
-    return false if !authorized(assembly)
+  def is_facilitator?(assembly)
+    return false if !authorized?(assembly)
     get_authorization(assembly).role.to_i == FACILITATOR
   end
 
   def is_owner?(assembly)
-    return false if !authorized(assembly)
+    return false if !authorized?(assembly)
     get_authorization(assembly).role.to_i == OWNER
   end
 
@@ -77,8 +79,6 @@ class User < ActiveRecord::Base
     !get_authorization(assembly).nil?
   end
 
-  private
-
   def get_authorization(assembly)
     if assembly.class.to_s =~ /String/i
       authorizations.where(:assembly_uuid => assembly).first
@@ -86,4 +86,8 @@ class User < ActiveRecord::Base
       authorizations.where(:assembly_uuid => assembly.uuid).first
     end
   end
+
+  private
+
+
 end
