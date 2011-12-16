@@ -14,10 +14,11 @@ RemoteVote::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  resource :assembly_categories, :only => [:index, :show ]
+  resource :categories, :only => [:index, :show ]
 
   resources :assemblies do
     resources :users
+    resources :registration_numbers, :only => [:index, :new, :create]
     resources :tags, :only => :show
     resources :authorizations, :only => [:new,:create,:destroy]
     resources :proposals  do

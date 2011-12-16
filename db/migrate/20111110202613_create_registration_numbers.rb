@@ -3,7 +3,7 @@ class CreateRegistrationNumbers < ActiveRecord::Migration
     create_table :registration_numbers do |t|
       t.string :assembly_uuid
       t.string :uuid
-      t.boolean :active
+      t.boolean :active, :default => true
 
       t.timestamps
     end

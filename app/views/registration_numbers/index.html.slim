@@ -1,0 +1,7 @@
+= title t('registration_numbers.index.title')
+p = t('registratino_numbers.index.date', Date.now.strftime('%b %e, %Y at %l:%M %P'))
+hr
+- unless @registration_numbers.empty?
+  ul.registration_numbers.list
+    - @registration_numbers.each do |registration_number|
+      li.registration_numbers.item = registration_number.uuid

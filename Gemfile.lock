@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.1)
     actionmailer (3.1.1)
       actionpack (= 3.1.1)
       mail (~> 2.3.0)
@@ -91,7 +92,12 @@ GEM
     multi_json (1.0.3)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
+    pdf-reader (0.10.1)
+      Ascii85 (~> 1.0.0)
     polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
     rack (1.3.5)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -159,6 +165,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.0.3)
     turn (0.8.3)
       ansi
     tzinfo (0.3.31)
@@ -185,6 +192,7 @@ DEPENDENCIES
   jasmine
   jquery-rails
   mocha
+  prawn
   rails (= 3.1.1)
   rdoc
   rspec

@@ -21,6 +21,7 @@ group :assets do
 end
 
 gem 'rdoc'
+gem 'prawn'
 
 gem 'jquery-rails'
 
