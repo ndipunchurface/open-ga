@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = AssemblyCategory.create([
+categories = Category.create([
                 { :name => "Activism" },
                 { :name => "Education" },
                 { :name => "Labor" },
@@ -39,7 +39,7 @@ if Rails.env =~ /development/i
 
   assembly = Assembly.create(
     :user_id => owner.id,
-    :assembly_category_id => 1,
+    :category_id => 1,
     :name => "Test Assembly",
     :description => "Just a test assembly.",
     :city => "Philadelphia",
