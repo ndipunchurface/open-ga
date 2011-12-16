@@ -4,7 +4,7 @@ class CreateAssemblies < ActiveRecord::Migration
       t.string :uuid, :limit => 36, :primary_key => true
       t.integer :user_id
       t.string :name, :null => false
-      t.integer :assembly_category_id, :null => false
+      t.integer :category_id, :null => false
       t.text :description
       t.string :city
       t.string :state

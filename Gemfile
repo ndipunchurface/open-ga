@@ -8,7 +8,6 @@ gem 'rails', '3.1.1'
 gem 'uuidtools'
 
 gem 'sqlite3'
-gem 'mysql2'
 
 gem 'devise'
 

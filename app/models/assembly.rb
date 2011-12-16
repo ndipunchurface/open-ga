@@ -6,7 +6,7 @@ require 'uuidable'
 # they have a valid registration number for EACH assembly.
 # See: Authorization
 class Assembly < ActiveRecord::Base
-  attr_accessible :name, :assembly_category_id, :description, :city, :state, :super_majority, :theme, 
+  attr_accessible :name, :category_id, :description, :city, :state, :super_majority, :theme, 
     :web_address, :public_email, :public_phone, :flag_threshold, :block_threshold 
 
   has_many :proposals, :foreign_key => :assembly_uuid
@@ -16,6 +16,7 @@ class Assembly < ActiveRecord::Base
   has_many :documents, :through => :assembly_document_repository
   has_one :alias, :foreign_key => :assembly_uuid
   belongs_to :user
+  belongs_to :category
 
   after_save :authorize_owner
   after_save :alias_assembly

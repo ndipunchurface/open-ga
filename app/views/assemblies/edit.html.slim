@@ -5,7 +5,7 @@
     = f.text_field :name
   p.field
     = f.label :category, t('assembly.category.name')
-    = select_tag "assembly_category_id", options_from_collection_for_select(AssemblyCategory.all, "id", "name"), :prompt => "Select a category--", :selected => @assembly.assembly_category_id
+    = f.select :category_id, options_from_collection_for_select(Category.all, "id", "name"), :prompt => "Select a category--", :selected => @assembly.category_id
   fieldset
     legend = t('assembly.fields.location')
     p.field

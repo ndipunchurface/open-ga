@@ -91,7 +91,6 @@ GEM
     mocha (0.10.0)
       metaclass (~> 0.0.1)
     multi_json (1.0.3)
-    mysql2 (0.3.10)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
     polyglot (0.3.3)
@@ -190,7 +189,6 @@ DEPENDENCIES
   jasmine
   jquery-rails
   mocha
-  mysql2
   rails (= 3.1.1)
   rdoc
   rspec

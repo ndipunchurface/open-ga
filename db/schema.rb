@@ -30,28 +30,22 @@ ActiveRecord::Schema.define(:version => 20111214212356) do
   end
 
   create_table "assemblies", :id => false, :force => true do |t|
-    t.string   "uuid",                 :limit => 36
+    t.string   "uuid",            :limit => 36
     t.integer  "user_id"
-    t.string   "name",                                               :null => false
-    t.integer  "assembly_category_id",                               :null => false
+    t.string   "name",                                          :null => false
+    t.integer  "category_id",                                   :null => false
     t.text     "description"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.string   "country"
-    t.integer  "super_majority",                     :default => 66
-    t.integer  "theme_id",                           :default => 1
+    t.integer  "super_majority",                :default => 66
+    t.integer  "theme_id",                      :default => 1
     t.string   "web_address"
     t.string   "public_email"
     t.string   "public_phone"
     t.integer  "flag_threshold"
-    t.integer  "block_threshold",                    :default => 5
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "assembly_categories", :force => true do |t|
-    t.string   "name"
+    t.integer  "block_threshold",               :default => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,6 +75,12 @@ ActiveRecord::Schema.define(:version => 20111214212356) do
   create_table "blocks", :force => true do |t|
     t.integer  "proposal_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

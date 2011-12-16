@@ -4,7 +4,7 @@
     = f.label :name, t('assemblies.fields.name')
     = f.text_field :name
   p.field
-    = f.label :assembly_category_id, t('assemblies.fields.category')
-    = select_tag "assembly_assembly_category_id", options_from_collection_for_select(AssemblyCategory.all, "id", "name"), :prompt => "Select a category--"
+    = f.label :category_id, t('assemblies.fields.category')
+    = f.select :category_id, options_from_collection_for_select(Category.all, "id", "name"), :prompt => "Select a category--"
   p.notice = t('assemblies.create.notice')
   = f.submit t('assemblies.create.submit'), :id => "submit"

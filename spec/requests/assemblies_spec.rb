@@ -39,15 +39,15 @@ describe "Assemblies" do
 
     before(:each) do
       sign_in
-      @category = Factory.create(:assembly_category)
+      @category = Factory.create(:category)
     end
 
     it "should make a new assembly with valid parameters" do
       visit new_assembly_path
       fill_in 'assembly_name', :with => "My random assembly"
-      select @category.name, :from => 'assembly_assembly_category_id'
+      select @category.name, :from => 'assembly_category_id'
       click_button 'submit'
-      page.should have_content("Assembly created")
+      page.should have_content("created!")
     end
   end
 end
