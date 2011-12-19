@@ -23,13 +23,13 @@ class Proposal < ActiveRecord::Base
 
   class << self
     # Reorder by most popular proposals.
-    def most_popular(limit = false)
-      if !limit
-        joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC')
-      else
-        joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC').limit(limit)
-      end
-    end
+    #def most_popular(limit = false)
+    #  if !limit
+    #    joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC')
+    #  else
+    #    joins(:votes).group('proposals.id').order('SUM(votes.upvote) DESC').limit(limit)
+    #  end
+    #end
 
     # Find a proposals with binding votes
     def binding
