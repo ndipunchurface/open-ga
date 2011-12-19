@@ -1,5 +1,5 @@
-# Remote Vote
-## A remote voting system
+# Open GA
+## A remote democracy system
 
 [![Build Status](https://secure.travis-ci.org/jonlaing/Remote-Vote.png)](http://travis-ci.org/jonlaing/Remote-Vote)
 
