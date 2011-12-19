@@ -62,13 +62,13 @@ Additionally, at the suggestion of others, I have added a "Web Service" function
 
 After you have all of your software installed navigate to your projects directory on your computer, or where ever you want to put your local build of Remote Vote. Run the following in your command line to grab a copy of the source code:
 
-	$ git clone https://github.com/jonlaing/Remote-Vote.git
+	$ git clone https://github.com/jonlaing/open-ga.git
 
 #### Installing the Bundler
 
 Then navigate to your fresh download in the command line by running:
 
-	$ cd Remote-Vote
+	$ cd open-ga
 
 Upon doing this you should be prompted that a .rvmrc file has been detected. You will be prompted to accept the file. Accept the file and a new gemset will be created for you in RVM. This new gemset is completely empty so you're going to need to download the Bundler to install all of the dependencies. Run the following code in the Remote-Vote directory:
 
