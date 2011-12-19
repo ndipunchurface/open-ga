@@ -43,6 +43,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
+    chunky_png (1.2.5)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -50,6 +51,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.2)
+    compass (0.12.alpha.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     devise (1.4.9)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -64,6 +69,7 @@ GEM
       factory_girl (~> 2.3.0)
       railties (>= 3.0.0)
     ffi (1.0.11)
+    fssm (0.2.7)
     guard (0.8.8)
       thor (~> 0.14.6)
     guard-rspec (0.5.1)
@@ -185,6 +191,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   capybara
   coffee-rails (~> 3.1.1)
+  compass (~> 0.12.alpha)
   devise
   factory_girl_rails
   guard
