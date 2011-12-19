@@ -104,6 +104,19 @@ To run your application locally, run:
 
 And then navigate to http://localhost:3000/
 *******************************************************************************************************************
+### Known Issues
+
+#### Pushing Changes
+
+If you receive a message that looks something like this:
+
+	The requested URL returned error: 403 while accessing https://...
+
+Then you'll need to switch to using ssh. Open `.git/config` in your editor of choice and find the line that starts with `url=`. Remove everything before the '@' symbol and replace it with `ssh://git`. Save the file then run the following command, (replace `[branch]` with the branch you're working on, ex: master):
+
+	$ git push origin [branch]
+
+*******************************************************************************************************************
 
 ### Credits
 
