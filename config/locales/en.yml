@@ -96,3 +96,7 @@ en:
       success: "Reply submitted successfully."
     errors: "There were errors submitting your reply."
     submit: "Reply"
+
+  categories:
+    index:
+      title: "Categories"
