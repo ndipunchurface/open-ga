@@ -3,7 +3,7 @@
 
 en:
   global:
-    app_title: "Remote Vote"
+    app_title: "Open GA"
     upvote: "Up Vote"
     downvote: "Down Vote"
     posted_by: "Posted by %{user_name}"
@@ -12,7 +12,7 @@ en:
       home: "Home"
       preferences: "Preferences"
       help: "Help"
-      logout: "Sign Out"
+      browse: "Browse"
     authorization_error: "You are not authorized to perform this action."
 
   amendments:

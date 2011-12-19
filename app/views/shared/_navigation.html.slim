@@ -1,6 +1,11 @@
-ul
-  li = link_to t('global.navigation.home'), root_url
-  li = link_to t('global.navigation.preferences'), edit_user_registration_path
-  li = link_to t('global.navigation.help')
-  li = link_to t('devise.sessions.sign_out'), destroy_user_session_path, :method => 'delete'
-     
+nav
+  ul
+    li = link_to t('global.navigation.home'), root_url
+    li = link_to t('global.navigation.browse')
+    - if user_signed_in?
+      li = link_to t('global.navigation.preferences'), edit_user_registration_path
+    li = link_to t('global.navigation.help')
+    - if user_signed_in?
+      li = link_to t('devise.sessions.sign_out'), destroy_user_session_path, :method => 'delete'
+    - else
+      li = link_to t('devise.sessions.sign_in'), new_user_session_path
