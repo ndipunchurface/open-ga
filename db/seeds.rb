@@ -37,7 +37,7 @@ if Rails.env =~ /development/i
     :name => "Sam User",
     :locale => 'en' )
 
-  assembly = Assembly.create(
+  assembly = owner.assemblies.create(
     :user_id => owner.id,
     :category_id => 1,
     :name => "Test Assembly",
