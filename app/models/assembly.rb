@@ -30,7 +30,7 @@ class Assembly < ActiveRecord::Base
     find(string)
   rescue ActiveRecord::RecordNotFound
     assembly_alias = Alias.where(:name => string).first
-    find(assembly_alias.assembly_uuid)
+    includes(:proposals).find(assembly_alias.assembly_uuid)
   end
 
   def to_param

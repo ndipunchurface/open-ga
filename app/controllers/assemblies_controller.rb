@@ -1,5 +1,7 @@
 class AssembliesController < ApplicationController
   skip_before_filter :authorize_participation, :only => [:index, :new, :create]
+
+  respond_to :html,:json
   
   def index
     authorizations = current_user.authorizations.collect { |a| a.assembly_uuid }
@@ -13,6 +15,11 @@ class AssembliesController < ApplicationController
     authorize_participation
     @assembly = Assembly.find_by_uuid_or_alias(params[:id])
     @proposals = @assembly.proposals
+
+    respond_to do |format|
+      format.html
+      format.json { render :text => @assembly.to_json }
+    end
   end
 
   def new
