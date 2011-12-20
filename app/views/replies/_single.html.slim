@@ -1,4 +1,4 @@
+== render :partial => 'shared/vote', :locals => {:model => reply}
 article.reply
   .body = reply.body
-aside
-  == render :partial => 'shared/actions', :locals => {:model => reply}
+== render :partial => 'shared/actions', :locals => {:model => reply}

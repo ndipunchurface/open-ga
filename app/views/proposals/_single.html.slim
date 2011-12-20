@@ -1,5 +1,7 @@
+== render :partial => 'shared/vote', :locals => {:model => proposal}
 article.proposal
   h3 = link_to proposal.title, assembly_proposal_path(assembly,proposal)
-  .body = proposal.body
-aside
-  == render :partial => 'shared/actions', :locals => {:model => proposal}
+  .body = (params[:controller] == "proposals" && params[:action] == "show") ? clean_tags(proposal.body) : snippet(proposal.body, 500)
+  == render :partial => 'shared/tags', :locals => {:model => proposal}
+== render :partial => 'shared/actions', :locals => {:model => proposal}
+

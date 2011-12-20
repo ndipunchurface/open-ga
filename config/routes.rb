@@ -1,5 +1,5 @@
 RemoteVote::Application.routes.draw do
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users 
 
   root :to => "assemblies#index"
 
@@ -19,7 +19,7 @@ RemoteVote::Application.routes.draw do
   resources :assemblies do
     resources :users
     resources :registration_numbers, :only => [:index, :new, :create]
-    resources :tags, :only => :show
+    resources :tags
     resources :authorizations, :only => [:new,:create,:destroy]
     resources :proposals  do
       resources :amendments do

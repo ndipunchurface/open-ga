@@ -1,0 +1,9 @@
+.tags {
+  float: none;
+  clear:both;
+  @include clearfix;
+  border-top: 1px dotted #ccc;
+  background: red;
+  margin-top: 9px;
+  padding: 9px 0 18px;
+}

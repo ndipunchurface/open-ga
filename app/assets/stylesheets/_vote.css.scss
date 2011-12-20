@@ -1,0 +1,25 @@
+.vote {
+  float: left;
+  width: 32px;
+  margin: -18px 0 9px;
+  padding-right: 18px;
+}
+
+.vote > a {
+  display:block;
+  width: 32px;
+  height: 0px;
+  padding-top: 32px;
+  overflow: hidden;
+  margin: 2px 0;
+
+  &.up { background: url(/assets/icons/Up.png); }
+  &.down { background: url(/assets/icons/Down.png); }
+}
+
+.vote > h4 { 
+  font-size: 24px; 
+  font-weight: bold; 
+  text-align: center;
+  color: #888;
+}

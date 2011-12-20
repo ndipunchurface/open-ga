@@ -1,4 +1,9 @@
 = title(@proposal.title, false)
-== render :partial => 'proposals/single', :locals => {:assembly => @assembly, :proposal => @proposal}
-== render :partial => 'amendments/list', :locals => { :amendments => @proposal.amendments, :assembly => @assembly }
-== render :partial => 'replies/list', :locals => { :replies => @proposal.replies }
+div.proposals.item
+  == render :partial => 'proposals/single', :locals => {:assembly => @assembly, :proposal => @proposal}
+div.amendments.column
+  h3 = t('amendments.name.plural')
+  == render :partial => 'amendments/list', :locals => { :amendments => @proposal.amendments, :assembly => @assembly }
+div.replies.column
+  h3 = t('replies.name.plural')
+  == render :partial => 'replies/list', :locals => { :replies => @proposal.replies }

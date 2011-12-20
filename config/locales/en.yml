@@ -8,6 +8,7 @@ en:
     downvote: "Down Vote"
     posted_by: "Posted by %{user_name}"
     reply:  "Reply"
+    flag: "Flag"
     navigation:
       home: "Home"
       preferences: "Preferences"
@@ -16,6 +17,9 @@ en:
     authorization_error: "You are not authorized to perform this action."
 
   amendments:
+    name:
+      singular: "Amendment"
+      plural: "Amendments"
     index:
       title: "Amendments for %{proposal_title}"
     create:
@@ -89,8 +93,12 @@ en:
       success: "Proposal updated successfully."
     errors: "There were errors submitting your proposal."  
     submit: "Propose"
+    quick_submit: "Submit a Proposal"
 
   replies:
+    name:
+      singular: "Reply"
+      plural: "Replies"
     create:
       title: "Reply to %{replyable_type}"
       success: "Reply submitted successfully."

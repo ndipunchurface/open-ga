@@ -1,0 +1,4 @@
+- unless model.taxonomies.empty?  
+  aside.tags
+    - model.taxonomies.each do |taxonomy|
+        = link_to "##{taxonomy.tag.name}", assembly_tag_url(@assembly.id, taxonomy.tag.name) 

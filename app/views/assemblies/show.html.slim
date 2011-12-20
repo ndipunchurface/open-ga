@@ -3,4 +3,5 @@ h3 Proposals
 .proposals.main-column
   == render :partial => 'proposals/list', :locals => {:proposals => @proposals, :assembly => @assembly}
 aside.sidebar
+  h4 = t('proposals.quick_submit')
   == render :partial => 'proposals/form', :locals => {:proposal => Proposal.new, :assembly => @assembly}

@@ -1,3 +1,4 @@
-= link_to t('global.upvote'), :class => "upvote"
-h4 = model.net_votes
-= link_to t('global.downvote'), :class => "downvote"
+nav.actions
+  ul
+    li = link_to t('global.reply'), "", :class => "reply"
+    li = link_to t('global.flag'), "", :class => "flag"

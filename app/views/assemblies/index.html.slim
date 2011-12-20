@@ -9,7 +9,7 @@
 - unless @authorized.empty?
   ul.authorized.assemblies.list
     - @authorized.each do |assembly|
-      li.authorized-assemblies.item 
+      li.authorized.assemblies.item 
         h3 = link_to assembly.name, assembly
 - else
   p.assemblies.none = t('assemblies.index.none')

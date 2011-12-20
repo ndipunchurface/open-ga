@@ -4,6 +4,10 @@
       = t('proposals.errors')
       - proposal.errors.full_messages.each do |error|
         .error = error
-  = f.text_field :title
-  = f.text_area :body
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :body
+    = f.text_area :body
   = f.submit t('proposals.submit'), :id => "submit"

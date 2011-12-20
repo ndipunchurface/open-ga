@@ -5,8 +5,16 @@ module ApplicationHelper
   end
 
   def link_tags(string)
-    string.gsub(/#([a-zA-Z]+)/) do |m|
-      link_to m[0], :controller => 'tags', :action => 'show', :id => m[1]
+    string.gsub(/#[a-zA-Z]+/) do |m|
+      link_to m, :controller => 'tags', :action => 'show', :id => m.sub(/#/,'')
     end
+  end
+
+  def snippet(thought, wordcount)
+    clean_tags(thought).split[0..(wordcount-1)].join(" ") +(thought.split.size > wordcount ? "\u2026" : "")
+  end 
+  
+  def clean_tags(string)
+    string.gsub(/#[a-zA-Z]+/,'')
   end
 end
