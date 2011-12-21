@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/jodosha/rails-i18n-js.git
+  revision: 7de2340c7a07328740c1be83d6506aa70f513e6f
+  specs:
+    rails-i18n-js (0.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -200,6 +206,7 @@ DEPENDENCIES
   prawn
   prototype-rails
   rails (= 3.1.1)
+  rails-i18n-js!
   rdoc
   rspec
   rspec-rails

@@ -26,7 +26,7 @@ gem 'prawn'
 
 #gem 'jquery-rails'
 gem 'prototype-rails'
-
+gem 'rails-i18n-js', :git => 'https://github.com/jodosha/rails-i18n-js.git'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

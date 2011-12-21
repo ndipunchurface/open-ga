@@ -9,6 +9,11 @@ class AssembliesController < ApplicationController
     
     @authorized = Assembly.find(authorizations)
     @owned = Assembly.find(ownerships)
+
+    respond_to do |format|
+      format.html
+      format.json { render :text => { :authorized => @authorized, :owned => @owned}.to_json }
+    end
   end
 
   def show
